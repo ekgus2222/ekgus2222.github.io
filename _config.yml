@@ -21,7 +21,7 @@ user:
   name: Dahyeon
   pic: /assets/img/cat.jpg
   picAlt: "catbook"
-  job: Kwangwoon University
+  job: Kwangwoon University 2019~
   aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
