@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               To The Sky
+title:               Study
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -82,8 +82,8 @@ menu:
         url:      /robot-kinematics/
       - title:  robotics_laboratory_3
         url:      /robotics-laboratory-3/
-      - title:  computer_vis
-        url:      /robotics-laboratory-3/
+      - title:  computer_vision
+        url:      /computer_vision/
   - title:             Study
     url:               /study/
     submenu:    
