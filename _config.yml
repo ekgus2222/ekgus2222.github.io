@@ -13,17 +13,17 @@ url:                 https://Sungjun0204.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             "나랑 공부하실?"
+tagline:             "이것 저것"
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  제가 배웠던 것들을 정리한 블로그입니다. 
+  Code & Study etc... 
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              Sungjun Kim
-  email:             kxt1234.max@gmail.com
+  name:              Dahyeon Kim
+  email:             hyunisland@naver.com
 
 # Fallback image and color
 image:               /assets/img/main_left.JPG
@@ -81,6 +81,8 @@ menu:
       - title:  robot-kinematics
         url:      /robot-kinematics/
       - title:  robotics_laboratory_3
+        url:      /robotics-laboratory-3/
+      - title:  computer_vis
         url:      /robotics-laboratory-3/
   - title:             Study
     url:               /study/
