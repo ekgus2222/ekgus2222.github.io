@@ -10,11 +10,11 @@ order: 1
 <span style=
 "font-size:170%;
 font-weight:bold">
-김성준
+김다현
 </span>
 </center>
 
-<center>MAJOR : ROBOT ENGINEERING</center>
+<center>MAJOR : </center>
 
 <center>Kwangwoon University</center>
 
@@ -22,16 +22,16 @@ font-weight:bold">
 
 ## Personal Data
 ---
-> 1998.02.04 대한민국,경기도,평택시 출생
+> 2000.05.12 대한민국,경기도,제주시 출생
 
-> 연락처: kxt1234.max@gmail.com
+> 연락처: hyunisland@naver.com
 
-> Github : <a href="https://github.com/Sungjun0204">https://github.com/Sungjun0204</a>
+> Github : <a href="https://github.com/ekgus2222">https://github.com/ekgus2222</a>
 
 
 ## Education
 ---
-> Mar.2016 ~ Feb.2023 광운대학교
+> Mar.2019 ~ Feb.2023 광운대학교
 >
 > 로봇학부 (DIVISION OF ROBOTICS)
 
@@ -53,14 +53,10 @@ font-weight:bold">
 ## Personal Project
 ---
 
-* **Cocktail Machine**
+* **작품 제목**
 
-펌프모터와 MFC를 이용한 음료수 배합기 (Baverage Mixer Machine using Pump Motor and MFC)
+작품 설명
 
-
-* **MI-ARM(Motion Imitation by Artificial Rubber Muscles)**
-
-인공근육 PAM을 이용한 팔 근육 로봇 (Arm Muscles Robot with PAM(Pneumatic Artificial Muscles))
 
 
 ## Awards
@@ -69,9 +65,9 @@ font-weight:bold">
 
 ## Skills and Certification
 ---
--Language : C/C++
+-Language : C/C++/Python
 
--Certification : JLPT N2
+-Certification : 
 
 
 
