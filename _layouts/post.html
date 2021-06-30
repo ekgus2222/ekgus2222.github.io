@@ -1,0 +1,17 @@
+---
+layout: base
+---
+
+{% if page.tags %}
+  {% for tag in page.tags %}
+  {% if site.data.tags contains tag %}
+    <span class="tag">{{ site.data.format[tag] }}</span>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% include post.html post=page link_title=false %}
+
+{% include about.html %}
+
+{% include related.html post=page %}
