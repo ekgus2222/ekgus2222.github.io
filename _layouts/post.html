@@ -1,36 +1,17 @@
 ---
-layout: page
+layout: base
 ---
 
-<div class="post">
-  <div>
-    {% if page.title %}
-    <p class="post_title">{{ page.title }}</p>
+{% if page.tags %}
+  {% for tag in page.tags %}
+  {% if site.data.tags contains tag %}
+    <span class="tag">{{ site.data.format[tag] }}</span>
     {% endif %}
-  </div>
-  <div class="post_data">
-    {% if page.date %}
-    <span class="post_date">{{ page.date | date: "%b %-d, %Y" }}</span>
-    {% endif %}
-    {% if page.categories %}
-    <span class="post_categories">
-      &raquo; {% for cat_name in page.categories %}
-      <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }}</a>{% if forloop.last == false %},
-      {% endif %}{% endfor %}
-    </span>
-    {% endif %}
-  </div>
-  <div class="post_content">
-    {{ content }}
-  </div>
+  {% endfor %}
+{% endif %}
 
+{% include post.html post=page link_title=false %}
 
-  {% if page.comment %}
-  <div class="post_comment">
+{% include about.html %}
 
-    {% include disqus.html username = site.disqus.shortname %}
-
-  </div>
-  {% endif %}
-
-</div>
+{% include related.html post=page %}

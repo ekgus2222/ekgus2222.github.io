@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
+---
+layout: base
+---
 
-{% include head.html %}
+<article class="page" role="article">
+  <header style="margin-bottom:2rem">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include message.html text=page.description %}
+  </header>
 
-<body>
-  <div class="content">
+  {{ content }}
+</article>
 
-    {% include header.html %}
-
-    {% include mobile_menu.html %}
-    
-    <main class="main">
-
-    {{ content }}
-
-    </main>
-
-  </div>
-
-  {% include footer.html %}
-  {% include js.html %}
-</body>
-</html>

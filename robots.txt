@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: http://Sungjun0204.github.io/sitemap.xml
