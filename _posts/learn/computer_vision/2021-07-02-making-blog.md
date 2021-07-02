@@ -16,6 +16,7 @@ use_math: true
 
 
 ```C++
+//코드 작성
 if (gameIsFun) {
 return true;
 }
