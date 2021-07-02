@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: 엑츄에이터(Actuators)
-slug: actuator
+slug: a
 category: 2021_the_first_half
 menu: false
 order: 1
