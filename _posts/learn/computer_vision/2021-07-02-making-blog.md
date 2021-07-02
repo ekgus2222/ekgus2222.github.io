@@ -15,9 +15,9 @@ use_math: true
 ![color](./img/hw1_sepia_tone/color.jpg)
     
 > ## Sepia Tone Transform Algorithm
-    - Transform RGB color to HSV color
-    - Change H and S
-    - Transform HSV color to RGB
+    1. Transform RGB color to HSV color
+    2. Change H and S
+    3. Transform HSV color to RGB
     
 ![sepia_tone_transform](./img/hw1_sepia_tone/sepia_tone_transform.jpg)
 
