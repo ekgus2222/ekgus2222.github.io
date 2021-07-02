@@ -19,6 +19,7 @@ use_math: true
     - Transform RGB color to HSV color
     - Change H and S
     - Transform HSV color to RGB
+    
     ![sepia_tone_transform](./img/hw1_sepia_tone/sepia_tone_transform.jpg)
 
 
