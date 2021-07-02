@@ -12,7 +12,7 @@ use_math: true
 
 # 1. Sepia Tone
 > Color
-    ![color](./img/hw1_sepia_tone/color.jpg)
+    ![color](./img/hw1_sepia_tone/color.jpg){: width = "100" height = "100"}
 
 
 
