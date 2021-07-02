@@ -18,4 +18,8 @@ use_math: true
 
 '''c++
 // 코드 작성
+int abc(){
+    int a = 0;
+    return a;
+}
 '''
