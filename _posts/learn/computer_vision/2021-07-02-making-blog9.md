@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[GithubPages] 1.Sepia Tone"
-subtitle:   "민트홀릭은 정신병이 아니다"
+subtitle:   "정문호 교수님"
 categories: 
     - learn
     - computer_vision
