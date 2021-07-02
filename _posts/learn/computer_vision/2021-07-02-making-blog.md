@@ -16,7 +16,7 @@ use_math: true
 
 
 
-'''c++
+'''C++
 int abc(){
     int a = 0;
     return a;
