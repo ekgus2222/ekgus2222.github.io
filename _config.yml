@@ -72,22 +72,10 @@ menu:
   - title:             Learn
     url:               /learn/
     submenu:
-      - title:  automatic_control
-        url:      /automatic-control/
-      - title:  microprocessor
-        url:      /microprocessor/
-      - title:  actuator
-        url:      /actuator/
-      - title:  robot-kinematics
-        url:      /robot-kinematics/
       - title:  robotics_laboratory_3
         url:      /robotics-laboratory-3/
       - title:  computer_vision
         url:      /computer_vision/
-      - title:  2021_the_first_half
-        url:      /2021_the_first_half/
-      - title:  a
-        url:      /a/
   - title:             Study
     url:               /study/
     submenu:    
