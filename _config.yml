@@ -78,8 +78,9 @@ menu:
         url:      /computer_vision/
       - title:  test
         url:      /test/
-      - title:  temp
-        url:      /temp/
+        submenu:
+          - title:  temp
+            url:      /temp/
   - title:             Study
     url:               /study/
     submenu:    
