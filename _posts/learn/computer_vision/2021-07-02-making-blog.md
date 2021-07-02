@@ -15,10 +15,8 @@ use_math: true
 
 
 
-
-'''javascript
-int abc(){
-    int a = 0;
-    return a;
+```javascript
+if (gameIsFun) {
+return true;
 }
-'''
+```
