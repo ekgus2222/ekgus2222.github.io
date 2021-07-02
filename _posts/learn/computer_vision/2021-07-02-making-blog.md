@@ -16,7 +16,7 @@ use_math: true
 
 
 
-'''C++
+'''javascript
 int abc(){
     int a = 0;
     return a;
