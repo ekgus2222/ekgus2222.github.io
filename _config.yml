@@ -76,11 +76,6 @@ menu:
         url:      /robotics-laboratory-3/
       - title:  computer_vision
         url:      /computer_vision/
-      - title:  test
-        url:      /test/
-        submenu:
-          - title:  temp
-            url:      /temp/
   - title:             Study
     url:               /study/
     submenu:    
