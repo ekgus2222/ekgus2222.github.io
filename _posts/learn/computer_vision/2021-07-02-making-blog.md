@@ -12,9 +12,14 @@ use_math: true
 
 # 1. Sepia Tone
 > Color
-
-    <img src = "./img/hw1_sepia_tone/color.jpg" width="40%"> 
-
+    ![color](./img/hw1_sepia_tone/color.jpg)
+    
+> Sepia Tone Transform Algorithm
+    - Transform RGB color to HSV color
+    - Change H and S
+    - Transform HSV color to RGB
+    
+    ![sepia_tone_transform](./img/hw1_sepia_tone/sepia_tone_transform.jpg)
 
 
 ```C++
