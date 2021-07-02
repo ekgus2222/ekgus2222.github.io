@@ -1,9 +1,8 @@
 ---
 layout: tag-blog
-title: 테스트
-slug: test
-category: learn
+title: 실험
+slug: temp
+category: test
 menu: false
-
 order: 1
 ---
