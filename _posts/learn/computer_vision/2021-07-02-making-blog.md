@@ -15,7 +15,7 @@ use_math: true
 
 
 
-```javascript
+```C++
 if (gameIsFun) {
 return true;
 }
