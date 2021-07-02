@@ -48,10 +48,10 @@ google_analytics:    G-xxxx
 
 # 댓글기능
 disqus: True
-disqus_shortname:    Sungjun0204
+disqus_shortname:    ekgus2222
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2021.06. by Sungjun Kim'
+copyright:           '&copy; 2021.06. by Dahyeon Kim'
 
 # Format of the permalinks
 permalink:           
