@@ -116,7 +116,13 @@ use_math: true
     - 8-Neighbors(상하좌우+대각선)
 
 
-    
+- Algorithm (Binary Image)
+    1. 전경인 픽셀일 경우
+    2. 이전에 '확인했던' 주변을 확인
+    3. 주변이 모두 배경이라면 새로운 label 부여
+    4. 주변에 label이 있다면 같은 label 부여
+    5. 주변의 label이 여러개인 경우 우선순위에 따라 label 부여
+    6. Second Pass를 통해 좀 더 정확한 Labeling
 
 > ### Code
 ```C++
@@ -177,11 +183,12 @@ use_math: true
     }
 
 
+    // Second Pass
     for(int i = 1; i<igImg2.Row()-1;i++)
     {
         for(int j = igImg2.Col()-2; j > 1;j--)
         {
-            if(igImg2[i][j] == 255) //일단 내가 전경
+            if(igImg2[i][j] == 255) //foreground
             {
                 if(igImg2[i-1][j-1] == 0 && igImg2[i-1][j] == 0 && igImg2[i][j-1] == 255) //왼쪽만 전경
                 {
