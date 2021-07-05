@@ -28,3 +28,21 @@ use_math: true
 ```C++
 
 ```
+
+
+> ## dilation and erosion
+
+> ### dilation
+
+    
+> ### erosion
+    
+    
+> ### Labeling
+
+    
+
+> ### Code
+```C++
+
+```
