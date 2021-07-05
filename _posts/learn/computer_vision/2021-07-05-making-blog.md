@@ -19,11 +19,11 @@ use_math: true
     
 > ### Otsu's Thresholding
 ![Otsu's](https://user-images.githubusercontent.com/69707792/124476069-64961380-dddd-11eb-8718-1eca90bf5d28.jpg)
-
+3x3
    
 > ### result
 ![Otsu's_Thresholding](https://user-images.githubusercontent.com/69707792/124476092-68c23100-dddd-11eb-9160-9422ee5a26ae.jpg)
-
+5x5
 
 
 > ### Code
