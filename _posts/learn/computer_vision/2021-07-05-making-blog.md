@@ -21,6 +21,7 @@ use_math: true
     
    
 > ### result
+![Otsu's_Thresholding](./img/hw2/Otsu's_Thresholding.jpg)
 
 
 > ### Code
