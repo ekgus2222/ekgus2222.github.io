@@ -24,7 +24,7 @@ use_math: true
 
 > ## Code
 ```C++
-void MainFrame::on_buttonSepiaTone_clicked()
+    void MainFrame::on_buttonSepiaTone_clicked()
 {
     KImageColor   icMain;
 
