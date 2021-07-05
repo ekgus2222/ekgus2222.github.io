@@ -236,6 +236,11 @@ use_math: true
 > ### erosion
     - 침식. mask와 겹치는 모든 픽셀이 전경이어야만 현재 픽셀이 전경, 아니라면 배경
 
+
+> ### result
+![3x3](./img/hw2/3x3.jpg)
+![5x5](./img/hw2/5x5.jpg)
+
 > ### Code (3x3, 5x5)
 ```C++
     ImageForm* q_pForm = 0;
