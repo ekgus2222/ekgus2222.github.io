@@ -18,10 +18,12 @@ use_math: true
         - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
     
 > ### Otsu's Thresholding
+
 ![Otsu's](https://user-images.githubusercontent.com/69707792/124476069-64961380-dddd-11eb-8718-1eca90bf5d28.jpg)
 
    
 > ### result
+
 ![Otsu's_Thresholding](https://user-images.githubusercontent.com/69707792/124476092-68c23100-dddd-11eb-9160-9422ee5a26ae.jpg)
 
 
@@ -130,6 +132,7 @@ use_math: true
     6. Second Pass를 통해 좀 더 정확한 Labeling
 
 > ### result
+
 ![Labeling](https://user-images.githubusercontent.com/69707792/124476122-7081d580-dddd-11eb-8bd4-aec183a258fa.jpg)
 
 
@@ -241,6 +244,7 @@ use_math: true
 
 
 > ### result
+
 ![3x3](https://user-images.githubusercontent.com/69707792/124476138-75468980-dddd-11eb-9f5a-e5f7a08363c3.jpg)
 3x3
 
