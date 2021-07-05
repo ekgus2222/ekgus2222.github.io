@@ -19,7 +19,11 @@ use_math: true
 > ## Otsu's Thresholding
     
     
-> ## 
+> ## Labeling
+
+
+
+
     
 
 > ## Code
