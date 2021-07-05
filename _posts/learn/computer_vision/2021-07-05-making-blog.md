@@ -127,6 +127,8 @@ use_math: true
     5. 주변의 label이 여러개인 경우 우선순위에 따라 label 부여
     6. Second Pass를 통해 좀 더 정확한 Labeling
 
+> ### result
+![Labeling](./img/hw2/Labeling.jpg)
 
 > ### Code
 ```C++
