@@ -15,12 +15,11 @@ use_math: true
 - Optimal Thresholding
     - A criterion functions should be devised that yields some measure of separation between regions.
     - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
-    -
+
+> ## Otsu's Thresholding
     
-> ## Sepia Tone Transform Algorithm
-    1. Transform RGB color to HSV color
-    2. Change H and S
-    3. Transform HSV color to RGB
+    
+> ## 
     
 
 > ## Code
