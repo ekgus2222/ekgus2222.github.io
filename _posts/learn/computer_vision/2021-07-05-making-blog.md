@@ -10,9 +10,12 @@ comments: true
 use_math: true
 ---
 
-# 2. Otsu’s Thresholding & dilation and erosion
-> ## Otsu’s Thresholding
-
+# 2. Otsu’s Thresholding and Labeling & dilation and erosion
+> ## Thresholding
+    - Optimal Thresholding
+        - A criterion functions should be devised that yields some measure of separation between regions.
+        - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
+    -
     
 > ## Sepia Tone Transform Algorithm
     1. Transform RGB color to HSV color
