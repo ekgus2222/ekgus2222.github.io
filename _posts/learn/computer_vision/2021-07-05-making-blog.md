@@ -19,11 +19,11 @@ use_math: true
     
 > ### Otsu's Thresholding
 ![Otsu's](https://user-images.githubusercontent.com/69707792/124476069-64961380-dddd-11eb-8718-1eca90bf5d28.jpg)
-3x3
+
    
 > ### result
 ![Otsu's_Thresholding](https://user-images.githubusercontent.com/69707792/124476092-68c23100-dddd-11eb-9160-9422ee5a26ae.jpg)
-5x5
+
 
 
 > ### Code
@@ -242,9 +242,9 @@ use_math: true
 
 > ### result
 ![3x3](https://user-images.githubusercontent.com/69707792/124476138-75468980-dddd-11eb-9f5a-e5f7a08363c3.jpg)
-
+3x3
 ![5x5](https://user-images.githubusercontent.com/69707792/124476150-77a8e380-dddd-11eb-8909-b1cb562f655d.jpg)
-
+5x5
 
 > ### Code (3x3, 5x5)
 ```C++
