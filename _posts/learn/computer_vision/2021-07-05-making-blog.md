@@ -18,7 +18,7 @@ use_math: true
         - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
     
 > ### Otsu's Thresholding
-    
+![Otsu's](./img/hw2/Otsu's.jpg)    
    
 > ### result
 ![Otsu's_Thresholding](./img/hw2/Otsu's_Thresholding.jpg)
