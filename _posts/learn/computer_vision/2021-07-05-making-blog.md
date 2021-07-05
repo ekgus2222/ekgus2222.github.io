@@ -20,6 +20,8 @@ use_math: true
 > ### Otsu's Thresholding
     
    
+> ### result
+
 
 > ### Code
 ```C++
