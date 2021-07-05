@@ -31,7 +31,6 @@ use_math: true
 
 
 > ## dilation and erosion
-
 > ### dilation
 
     
