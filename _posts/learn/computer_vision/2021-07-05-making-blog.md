@@ -12,19 +12,19 @@ use_math: true
 
 # 2. Otsu’s Thresholding and Labeling & dilation and erosion
 > ## Otsu’s Thresholding and Labeling
-    > ### Thresholding
+> ### Thresholding
 - Optimal Thresholding
-- A criterion functions should be devised that yields some measure of separation between regions.
-- The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
-
-    > ### Otsu's Thresholding
+    - A criterion functions should be devised that yields some measure of separation between regions.
+    - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
+    
+> ### Otsu's Thresholding
     
     
-    > ### Labeling
+> ### Labeling
 
     
 
-    > ### Code
+> ### Code
 ```C++
 
 ```
