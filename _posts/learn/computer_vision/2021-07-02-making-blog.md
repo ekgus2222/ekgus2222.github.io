@@ -12,14 +12,16 @@ use_math: true
 
 # 1. Sepia Tone
 > ## Color
-![color](./img/hw1_sepia_tone/color.jpg)
+![color](https://user-images.githubusercontent.com/69707792/124476010-5516ca80-dddd-11eb-9f32-4b8cdaebb01e.jpg)
+
     
 > ## Sepia Tone Transform Algorithm
     1. Transform RGB color to HSV color
     2. Change H and S
     3. Transform HSV color to RGB
     
-![sepia_tone_transform](./img/hw1_sepia_tone/sepia_tone_transform.jpg)
+![sepia_tone_transform](https://user-images.githubusercontent.com/69707792/124476023-58aa5180-dddd-11eb-8aab-7393c9e31312.jpg)
+
 
 
 > ## result
