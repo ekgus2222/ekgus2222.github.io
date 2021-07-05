@@ -113,7 +113,7 @@ use_math: true
 > ### Labeling
 - Neighbors
     - 4-Neighbors(상하좌우)
-    - 8-Neighbors(상하좌우+대각선)
+    - 8-Neighbors(상하좌우+대각선) <- Code
 
 
 - Algorithm (Binary Image)
@@ -123,6 +123,7 @@ use_math: true
     4. 주변에 label이 있다면 같은 label 부여
     5. 주변의 label이 여러개인 경우 우선순위에 따라 label 부여
     6. Second Pass를 통해 좀 더 정확한 Labeling
+
 
 > ### Code
 ```C++
