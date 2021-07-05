@@ -231,12 +231,96 @@ use_math: true
 
 > ## dilation and erosion
 > ### dilation
-
+    - 팽창. mask와 겹치는 픽셀 중 한 픽셀이라도 전경이라면 현재 픽셀은 전경
     
 > ### erosion
-      
+    - 침식. mask와 겹치는 모든 픽셀이 전경이어야만 현재 픽셀이 전경, 아니라면 배경
 
-> ### Code
+> ### Code (3x3, 5x5)
 ```C++
+    ImageForm* q_pForm = 0;
 
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Otsu's Thresholding")
+            {
+                q_pForm = (*_plpImageForm)[i];
+                break;
+            }
+
+
+
+        KImageGray img_dil = q_pForm->ImageGray();
+        KImageGray img_ero = q_pForm->ImageGray();
+        KImageGray img_tmp = q_pForm->ImageGray();
+        
+
+        //Dilation
+        for(unsigned int i = 1;i<img_dil.Row()-1;i++)
+        {
+            for(unsigned int j = 1;j<img_dil.Col()-1;j++)
+            {
+                if(img_tmp[i-1][j-1] == 255 || img_tmp[i-1][j] == 255 || img_tmp[i-1][j+1] == 255 || img_tmp[i][j-1] == 255 || img_tmp[i][j+1] == 255 || img_tmp[i+1][j-1] == 255 || img_tmp[i+1][j] == 255 || img_tmp[i+1][j+1] == 255 )
+                    img_dil[i][j] = 255;
+            }
+
+        }
+
+        //Eroison
+        for(unsigned int i = 1;i<img_ero.Row()-1;i++)
+        {
+            for(unsigned int j = 1;j<img_ero.Col()-1;j++)
+            {
+                if(img_tmp[i-1][j-1] == 0 || img_tmp[i-1][j] == 0 || img_tmp[i-1][j+1] == 0 || img_tmp[i][j-1] == 0 || img_tmp[i][j+1] == 0 || img_tmp[i+1][j-1] == 0 || img_tmp[i+1][j] == 0 || img_tmp[i+1][j+1] == 0 )
+                    img_ero[i][j] = 0;
+            }
+
+        }
+
+```
+
+
+```C++
+    ImageForm* q_pForm = 0;
+
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Otsu's Thresholding")
+            {
+                q_pForm = (*_plpImageForm)[i];
+                break;
+            }
+
+        KImageGray img_dil = q_pForm->ImageGray();
+        KImageGray img_ero = q_pForm->ImageGray();
+        KImageGray img_tmp = q_pForm->ImageGray();
+        
+
+        //Dilation
+        for(unsigned int i = 2;i<img_dil.Row()-2;i++)
+        {
+            for(unsigned int j = 2;j<img_dil.Col()-2;j++)
+            {
+                if(img_tmp[i-2][j-2] == 255 || img_tmp[i-2][j-1] == 255|| img_tmp[i-2][j] == 255 || img_tmp[i-2][j+1] == 255 || img_tmp[i-2][j+2] == 255 ||
+                   img_tmp[i-1][j-2] == 255 || img_tmp[i-1][j-1] == 255|| img_tmp[i-1][j] == 255 || img_tmp[i-1][j+1] == 255 || img_tmp[i-1][j+2] == 255 ||
+                   img_tmp[i][j-2] == 255 || img_tmp[i][j-1] == 255 || img_tmp[i][j+1] == 255 || img_tmp[i][j+2] == 255 ||
+                   img_tmp[i+1][j-2] == 255 || img_tmp[i+1][j-1] == 255|| img_tmp[i+1][j] == 255 || img_tmp[i+1][j+1] == 255 || img_tmp[i+1][j+2] == 255 ||
+                   img_tmp[i+2][j-2] == 255 || img_tmp[i+2][j-1] == 255|| img_tmp[i+2][j] == 255 || img_tmp[i+2][j+1] == 255 || img_tmp[i+2][j+2] == 255)
+                    img_dil[i][j] = 255;
+            }
+
+        }
+
+        //Eroison
+        for(unsigned int i = 2;i<img_ero.Row()-2;i++)
+        {
+            for(unsigned int j = 2;j<img_ero.Col()-2;j++)
+            {
+                if(img_tmp[i-2][j-2] == 0 || img_tmp[i-2][j-1] == 0|| img_tmp[i-2][j] == 0 || img_tmp[i-2][j+1] == 0 || img_tmp[i-2][j+2] == 0 ||
+                   img_tmp[i-1][j-2] == 0 || img_tmp[i-1][j-1] == 0|| img_tmp[i-1][j] == 0 || img_tmp[i-1][j+1] == 0 || img_tmp[i-1][j+2] == 0 ||
+                   img_tmp[i][j-2] == 0 || img_tmp[i][j-1] == 0 || img_tmp[i][j+1] == 0 || img_tmp[i][j+2] == 0 ||
+                   img_tmp[i+1][j-2] == 0 || img_tmp[i+1][j-1] == 0|| img_tmp[i+1][j] == 0 || img_tmp[i+1][j+1] == 0 || img_tmp[i+1][j+2] == 0 ||
+                   img_tmp[i+2][j-2] == 0 || img_tmp[i+2][j-1] == 0|| img_tmp[i+2][j] == 0 || img_tmp[i+2][j+1] == 0 || img_tmp[i+2][j+2] == 0 )
+                    img_ero[i][j] = 0;
+            }
+
+        }
 ```
