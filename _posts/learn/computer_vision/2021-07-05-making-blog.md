@@ -12,6 +12,7 @@ use_math: true
 
 # 2. Otsu’s Thresholding and Labeling & dilation and erosion
 > # Input Image
+
 ![Input](https://user-images.githubusercontent.com/69707792/124537874-ac588180-de55-11eb-9655-41a97d2501a5.JPG)
 
 > # Otsu’s Thresholding and Labeling
