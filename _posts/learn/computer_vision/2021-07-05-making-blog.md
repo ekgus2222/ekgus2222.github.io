@@ -11,16 +11,16 @@ use_math: true
 ---
 
 # 2. Otsu’s Thresholding and Labeling & dilation and erosion
-> ## Input Image
+> # Input Image
 ![Input](https://user-images.githubusercontent.com/69707792/124537874-ac588180-de55-11eb-9655-41a97d2501a5.JPG)
 
-> ## Otsu’s Thresholding and Labeling
+> # Otsu’s Thresholding and Labeling
 > ### Thresholding
     - Optimal Thresholding
         - A criterion functions should be devised that yields some measure of separation between regions.
         - The intensity value maximizing(or minimizing) the criterion function is considered as the optimal threshold.
     
-> ### Otsu's Thresholding
+> ## Otsu's Thresholding
 
 ![Otsu's](https://user-images.githubusercontent.com/69707792/124476069-64961380-dddd-11eb-8718-1eca90bf5d28.jpg)
 
@@ -120,7 +120,7 @@ use_math: true
     }
 ```
 
-> ### Labeling
+> ## Labeling
 - Neighbors
     - 4-Neighbors(상하좌우)
     - 8-Neighbors(상하좌우+대각선) <- Code
@@ -238,11 +238,11 @@ use_math: true
 
 
 
-> ## dilation and erosion
-> ### dilation
+> # dilation and erosion
+> ## dilation
     - 팽창. mask와 겹치는 픽셀 중 한 픽셀이라도 전경이라면 현재 픽셀은 전경
     
-> ### erosion
+> ## erosion
     - 침식. mask와 겹치는 모든 픽셀이 전경이어야만 현재 픽셀이 전경, 아니라면 배경
 
 
