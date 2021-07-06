@@ -12,6 +12,7 @@ use_math: true
 
 # 1. Sepia Tone
 > ## Input Image
+
 ![Input](https://user-images.githubusercontent.com/69707792/124537808-8fbc4980-de55-11eb-973b-399ba9cc4756.JPG)
 
 > ## Color
