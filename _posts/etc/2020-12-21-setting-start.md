@@ -58,6 +58,7 @@ comments: true
 <br>   
 <br>
 <br>
+<img src="https://user-images.githubusercontent.com/69707792/124764866-60e6c600-df70-11eb-827b-d6da09f9ac2c.jpg" width="20%">
     
 | SW 마에스트로 | 소마 | 
 |:--------:|:--------:|
@@ -75,6 +76,7 @@ comments: true
 <br>   
 <br>
 <br>
+<img src="https://user-images.githubusercontent.com/69707792/124764866-60e6c600-df70-11eb-827b-d6da09f9ac2c.jpg" width="20%">
     
 | 42서울 |  | 
 |:--------:|:--------:|
