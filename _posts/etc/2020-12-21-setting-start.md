@@ -10,5 +10,5 @@ https://23log.tistory.com/24
 
 
 ---
-
+layout : avd
 ---
