@@ -94,7 +94,8 @@ comments: true
 
 <br>
 <br>
-https://23log.tistory.com/24
+기본 정리 : https://23log.tistory.com/24
+자세한 설명 : https://velog.io/@batboy118/SSAFY-42SEOUL-%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BD%94%EC%8A%A4-%EB%B9%84%EA%B5%90
 <br>   
 <br>
 <br>
