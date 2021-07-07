@@ -25,7 +25,7 @@ comments: true
 <br>
 <br>
 
-<img src="https://user-images.githubusercontent.com/69707792/124764866-60e6c600-df70-11eb-827b-d6da09f9ac2c.jpg" width="10%">
+<img src="https://user-images.githubusercontent.com/69707792/124764866-60e6c600-df70-11eb-827b-d6da09f9ac2c.jpg" width="20%">
 | 부스트캠프 | boostcamp, 붓캠 | 
 |:--------:|:--------:|
 | 주최 기관 | 네이버 커넥트 재단 |
