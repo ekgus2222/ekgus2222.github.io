@@ -93,7 +93,7 @@ comments: true
 | 링크 | https://woowabros.github.io/devrel/2020/04/13/techcamp3.html |
 
 
-!https://23log.tistory.com/24
+https://23log.tistory.com/24
 <br>   
 <br>
 <br>
