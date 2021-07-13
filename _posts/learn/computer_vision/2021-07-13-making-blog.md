@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[GithubPages] 2. Otsu’s Thresholding & dilation and erosion"
+title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
@@ -10,7 +10,7 @@ comments: true
 use_math: true
 ---
 
-# 2. Otsu’s Thresholding and Labeling & dilation and erosion
+# 3. Histogram Equalization & Histogram Matching
 > # Input Image
 
 ![Input](https://user-images.githubusercontent.com/69707792/124537874-ac588180-de55-11eb-9655-41a97d2501a5.JPG)
