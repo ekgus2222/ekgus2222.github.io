@@ -138,7 +138,7 @@ void MainFrame::on_buttonHEQ_clicked()
 
 > ## Histogram Matching
 - Histogram Matching이란?
-    특정한 histogram과 Image의 histogram을 matching 시키는 
+    특정한 histogram과 Image의 histogram을 matching 시키는 것
 
 - idea
 
