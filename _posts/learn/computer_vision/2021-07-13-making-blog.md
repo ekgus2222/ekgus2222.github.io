@@ -24,7 +24,7 @@ use_math: true
     
 <img src = "https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg" width = 50%>
 
-- 원리
+- idea
 
 <img src = "https://user-images.githubusercontent.com/69707792/125430627-fb894105-8e6b-4d0a-af44-42c26a0f7729.jpg" width = 50%> r과 s matching   
 
@@ -137,9 +137,12 @@ void MainFrame::on_buttonHEQ_clicked()
 ![imgInput](https://user-images.githubusercontent.com/69707792/125427161-b15d05f5-a5c2-46cc-b9f9-8d2d4545e7a8.JPG)
 
 > ## Histogram Matching
-   
+- Histogram Matching이란?
+    특정한 histogram과 Image의 histogram을 matching 시키는 
 
+- idea
 
+![idea](https://user-images.githubusercontent.com/69707792/125431342-4763a28d-02e1-4a01-b58c-2c9b4807bf7a.jpg)
 
 > ### result
 
