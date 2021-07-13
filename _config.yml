@@ -78,11 +78,13 @@ menu:
         url:      /computer_vision/
   - title:             Study
     url:               /study/
-    submenu:    
-      - title:  GITHUBPAGE
-        url:      /githubpage/
   - title:            etc
     url:            /etc/
+    submenu:    
+      - title:  GITHUBPAGE
+        url:      /githubpage/ 
+      - title:  INFORMATION
+        url:      /information/
 
 
 
