@@ -9,6 +9,7 @@ tags: githubpage
 comments: true
 ---
 
+# Gitblog Tip!
 
 ## 자기소개
 - ./_data/authors.yml   
