@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: GITHUBPAGE
-slug: githubpage
+title: INFORMATION
+slug: information
 category: etc
 menu: false
 order: 1
