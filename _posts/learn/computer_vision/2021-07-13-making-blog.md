@@ -24,9 +24,11 @@ use_math: true
     
 <img src = "https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg" width = 50%>
 
-- Algorithm
-1. histogram 만들기
-2. 
+- 원리
+
+<img src = "https://user-images.githubusercontent.com/69707792/125430627-fb894105-8e6b-4d0a-af44-42c26a0f7729.jpg" width = 50%>
+<br>
+r과 s matching
    
 > ### result
 
