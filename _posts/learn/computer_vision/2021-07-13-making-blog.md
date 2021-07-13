@@ -23,6 +23,7 @@ use_math: true
     이미지의 밝기를 조정해 contrast를 개선한다.   
     contrast 높다 = 분산이 크다 = 분산이 가장 크려면 밝기 분포가 일정해야 한다 = 선명하다
     
+<img src = "https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg" width = 20%>
 ![histo](https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg)
 
    
