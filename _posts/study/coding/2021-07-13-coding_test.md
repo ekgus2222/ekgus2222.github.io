@@ -48,9 +48,9 @@ use_math: true
 <img src="https://user-images.githubusercontent.com/69707792/125422900-fce55dcb-08f7-4bc8-8a92-c5247a3006f9.jpg" width="60%">
 
 <br>   
-case는 2개가 존재한다.    
-1. h가 R보다 크거나 같음 ( 56점 )   
-2. h가 R보다 작음 ( 34점 )   
+case는 2개가 존재한다. <br>   
+1. h가 R보다 크거나 같음 ( 56점 )   <br>
+2. h가 R보다 작음 ( 34점 )   <br>
 이런 case를 if문을 이용해서 처리했다.
 
 
