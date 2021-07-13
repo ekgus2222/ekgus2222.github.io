@@ -27,7 +27,7 @@ use_math: true
 
 > ### Code
 ```C++
- void MainFrame::on_buttonHEQ_clicked()
+void MainFrame::on_buttonHEQ_clicked()
 {
     KImageColor icMain;
 
