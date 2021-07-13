@@ -45,7 +45,7 @@ use_math: true
 이 함수는 공이 장애물을 넘으면서 이동한 거리를 계산하고 마지막 끝점을 반환한다.   
 이 반환된 끝점을 시작점으로 다른 루틴을 실행한다.   
 
-![KakaoTalk_20210713_175545344_02](https://user-images.githubusercontent.com/69707792/125422900-fce55dcb-08f7-4bc8-8a92-c5247a3006f9.jpg)
+<img src="https://user-images.githubusercontent.com/69707792/125422900-fce55dcb-08f7-4bc8-8a92-c5247a3006f9.jpg" width="20%">
 
 <br>   
 case는 2개가 존재한다.   
@@ -53,9 +53,10 @@ case는 2개가 존재한다.
 2. h가 R보다 작음 ( 34점 )
 이런 case를 if문을 이용해서 처리했다.
 
-![KakaoTalk_20210713_175545344_01](https://user-images.githubusercontent.com/69707792/125422955-b9eb3dc8-6f3e-432b-b17e-559787616486.jpg)
-![KakaoTalk_20210713_175545344](https://user-images.githubusercontent.com/69707792/125422963-08fb5c9c-3b4a-488f-9cf0-4fcb0198d68e.jpg)
 
+<img src="https://user-images.githubusercontent.com/69707792/125422955-b9eb3dc8-6f3e-432b-b17e-559787616486.jpg" width="20%">
+
+<img src="https://user-images.githubusercontent.com/69707792/125422963-08fb5c9c-3b4a-488f-9cf0-4fcb0198d68e.jpg" width="20%">
 
 > ## code
 
