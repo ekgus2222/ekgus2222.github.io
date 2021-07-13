@@ -1,3 +1,4 @@
+![histo](https://user-images.githubusercontent.com/69707792/125429033-9e871a6b-f5c6-48a6-991a-c72d0f63447f.jpg)
 ---
 layout: post
 title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
@@ -21,6 +22,9 @@ use_math: true
 - Histogram Equalization이란?
     이미지의 밝기를 조정해 contrast를 개선한다.   
     contrast 높다 = 분산이 크다 = 분산이 가장 크려면 밝기 분포가 일정해야 한다 = 선명하다
+    
+![histo](https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg)
+
    
 > ### result
 
