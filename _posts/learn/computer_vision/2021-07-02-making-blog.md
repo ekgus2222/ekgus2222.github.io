@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[GithubPages] 1.Sepia Tone"
+title:  "[Computer_Vision] 1.Sepia Tone"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
