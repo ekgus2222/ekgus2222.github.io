@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[GithubPages] 2. Otsu’s Thresholding & dilation and erosion"
+title:  "[Computer_Vision] 2. Otsu’s Thresholding & dilation and erosion"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
