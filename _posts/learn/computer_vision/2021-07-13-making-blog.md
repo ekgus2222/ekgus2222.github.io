@@ -1,4 +1,3 @@
-![histo](https://user-images.githubusercontent.com/69707792/125429033-9e871a6b-f5c6-48a6-991a-c72d0f63447f.jpg)
 ---
 layout: post
 title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
