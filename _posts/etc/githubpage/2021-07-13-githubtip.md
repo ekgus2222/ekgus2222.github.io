@@ -11,9 +11,9 @@ comments: true
 
 
 ## 자기소개
-- ./_data/authors.yml
-learn에 추가하려면
--./_featured_categories/learn
+- ./_data/authors.yml   
+learn에 추가하려면   
+-./_featured_categories/learn   
 -_config.yml
 
 ## 블로그 소개
