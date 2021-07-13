@@ -23,8 +23,10 @@ use_math: true
     contrast 높다 = 분산이 크다 = 분산이 가장 크려면 밝기 분포가 일정해야 한다 = 선명하다
     
 <img src = "https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg" width = 50%>
-![histo](https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg)
 
+- Algorithm
+1. histogram 만들기
+2. 
    
 > ### result
 
@@ -84,7 +86,10 @@ void MainFrame::on_buttonHEQ_clicked()
         //qDebug() << t << " : " << P_R[t];
 
     }
+    //
 
+
+    // 대응
     T_R[0] = P_R[0];
     T_G[0] = P_G[0];
     T_B[0] = P_B[0];
@@ -104,6 +109,7 @@ void MainFrame::on_buttonHEQ_clicked()
     }
 
 
+    // 대입
     for(unsigned int i=0; i<icMain.Row(); i++){
         for(unsigned int j=0; j<icMain.Col(); j++)
         {
