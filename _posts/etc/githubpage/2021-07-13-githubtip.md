@@ -14,11 +14,11 @@ comments: true
 - ./_data/authors.yml   
 
 ## learn에 추가하려면   
--./_featured_categories/learn   
--_config.yml   
+- ./_featured_categories/learn   
+- _config.yml   
 
 ## 블로그 소개
--about.md   
+- about.md   
 
 ## 글쓸때
 - 제목 : 20xx-xx-xx-making-blog10.md   
