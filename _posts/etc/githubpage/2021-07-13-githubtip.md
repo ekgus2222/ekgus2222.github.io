@@ -24,3 +24,7 @@ comments: true
 ## 글쓸때
 - 제목 : 20xx-xx-xx-making-blog10.md   
 - slug 랑 tag 잘 맞춰야함!!   
+
+## 메뉴 추가
+- _config.yml
+- _featured_categories
