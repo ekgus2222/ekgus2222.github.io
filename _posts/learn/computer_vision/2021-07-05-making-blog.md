@@ -34,7 +34,7 @@ use_math: true
 
 > ### Code
 ```C++
- KImageGray igImg;
+KImageGray igImg;
 
     //포커스 된 ImageForm으로부터 영상을 가져옴
     if(_q_pFormFocused != 0 && _q_pFormFocused->ImageGray().Address() &&  _q_pFormFocused->ID() == "OPEN")
