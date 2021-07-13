@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: GITHUBPAGE
-slug: githubpage
-category: study
+slug: etc
+category: etc
 menu: false
-order: 6
+order: 1
 ---
