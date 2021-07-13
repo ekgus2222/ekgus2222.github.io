@@ -18,7 +18,8 @@ use_math: true
 ![inputImg](https://user-images.githubusercontent.com/69707792/125424580-e29eaa8d-3291-4c47-a8ef-aecbe75f5c07.JPG)
 
 > ## Histogram Equalization
-
+- 한 줄 요약   
+    contrast 높다 = 분산이 크다 = 분산이 가장 크려면 밝기 분포가 일정해야 한다
    
 > ### result
 
