@@ -26,8 +26,7 @@ use_math: true
 
 - 원리
 
-<img src = "https://user-images.githubusercontent.com/69707792/125430627-fb894105-8e6b-4d0a-af44-42c26a0f7729.jpg" width = 50%>
-r과 s matching   
+<img src = "https://user-images.githubusercontent.com/69707792/125430627-fb894105-8e6b-4d0a-af44-42c26a0f7729.jpg" width = 50%> r과 s matching   
 
 <br>
 
