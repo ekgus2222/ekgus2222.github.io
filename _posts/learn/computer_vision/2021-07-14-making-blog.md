@@ -20,14 +20,14 @@ use_math: true
 > ## Gaussian Noise
 - Gaussian Noise란?
     - 정규분포 Noise, 각 픽셀과 관련없이 독립적으로 생김.
-    - 아래 수식에서 n은 정규분포를 가지는 잡음   
+    - 아래 수식에서 n은 정규분포를 가지는 잡음   <br>
     <img src = "https://user-images.githubusercontent.com/69707792/125557141-46957d2a-7487-47f6-a7e5-0346f1f504b6.jpg" width = 40%>
 
 
 > ## Salt&Pepper Noise
 - Salt&Pepper Noise란?
     - impulsive noise or spike noise
-    - 0 또는 1이 랜덤하게 생김
+    - 0 또는 1이 랜덤하게 생김 <br>
     <img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg" width = 60%>
 
 > ### result
