@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
+title:  "[Computer_Vision] 4. Gaussian noise and salt&pepper noise & Box, Gaussian, Median Filter"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
