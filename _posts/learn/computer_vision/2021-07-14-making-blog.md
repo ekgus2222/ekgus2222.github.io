@@ -146,7 +146,7 @@ use_math: true
 - Box Filtering 
     - 주변 픽셀값의 평균을 얻는 방식의 이미지 필터링
     - 이미지 샘플과 filter kernel을 곱해서 필터링된 결과값을 얻음
-    ![Box](https://user-images.githubusercontent.com/69707792/125558328-7f216a54-b9d2-4134-b6e7-91a6703d4054.jpg)
+    <img src = "https://user-images.githubusercontent.com/69707792/125558328-7f216a54-b9d2-4134-b6e7-91a6703d4054.jpg" width = 40%>
     
 - 장점
     - 빠르다
