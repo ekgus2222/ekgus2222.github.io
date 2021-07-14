@@ -368,7 +368,7 @@ use_math: true
 
 
 - 단점
-    - sort 해야하므로 
+    - sort 해야하므로 느리다
 
 
 > ### result
