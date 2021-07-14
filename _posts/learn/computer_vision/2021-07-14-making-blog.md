@@ -135,7 +135,7 @@ use_math: true
 
 
 
-> # Box, Median, Gaussian Filter
+> # Box, Gaussian, Median Filter
 > ## Input Image
 
 ![noise](https://user-images.githubusercontent.com/69707792/125557647-4c085b6a-c7d3-485a-abe1-be0e57939021.JPG)
@@ -165,21 +165,83 @@ use_math: true
 
 > ### Code
 ```C++
+    //필터링
+    int filtersize = ui->spin_FilterSize->value();
 
-```    
+    //Box Filtering
+        //S_n_P noise 이미지 불러오기
+    ImageForm* q_pForm_s = 0;
+
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
+            {
+                q_pForm_s = (*_plpImageForm)[i];
+                break;
+            }
+
+    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
+
+    //Gaussian noise 이미지 불러오기
+
+    ImageForm* q_pForm_g = 0;
+
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
+            {
+                q_pForm_g = (*_plpImageForm)[i];
+                break;
+            }
+    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
+
+    int size = 0.5*filtersize-0.5;
+    int box = filtersize*filtersize;
+    //qDebug()<<size;
+        //Salt Noise
+    double sum_r_s,sum_g_s,sum_b_s;
+    double sum_r_g,sum_g_g,sum_b_g;
+
+    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
+        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
+            sum_r_s = 0;
+            sum_g_s = 0;
+            sum_b_s = 0;
+
+            sum_r_g = 0;
+            sum_g_g = 0;
+            sum_b_g = 0;
+            for(int i = -size; i<size+1; i++){
+                for(int j = -size; j<size+1;j++){
+                    sum_r_s+=Salt_Noise[ii-i][jj-j].r;
+                    sum_g_s+=Salt_Noise[ii-i][jj-j].g;
+                    sum_b_s+=Salt_Noise[ii-i][jj-j].b;
+
+                    sum_r_g+=Gaussian_Noise[ii-i][jj-j].r;
+                    sum_g_g+=Gaussian_Noise[ii-i][jj-j].g;
+                    sum_b_g+=Gaussian_Noise[ii-i][jj-j].b;
+                }
+            }
+
+            //qDebug()<<sum_r/(filtersize*filtersize);
+
+            Salt_Noise_2[ii][jj].r=sum_r_s/box;
+            Salt_Noise_2[ii][jj].g=sum_g_s/box;
+            Salt_Noise_2[ii][jj].b=sum_b_s/box;
+
+            Gaussian_Noise_2[ii][jj].r=sum_r_g/box;
+            Gaussian_Noise_2[ii][jj].g=sum_g_g/box;
+            Gaussian_Noise_2[ii][jj].b=sum_b_g/box;
+        }
+    }
 
 
+    //show noise 제거
+    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Box_Salt_n_Pepper", this);
+    _plpImageForm->Add(q_pForm3);
+    q_pForm3->show();
 
-
-> ## Median Filter
-
-> ### result
-
-![MedianFilter](https://user-images.githubusercontent.com/69707792/125557741-fda5db35-3fa6-4cdc-9f28-b4ac8881764f.JPG)
-
-> ### Code
-```C++
-
+    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Box_Gaussian", this);
+    _plpImageForm->Add(q_pForm4);
+    q_pForm4->show();
 ```    
 
 
@@ -187,13 +249,206 @@ use_math: true
 
 > ## Gaussian Filter
 
+![Gaussianfi](https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg)
+
 > ### result
 
 ![GaussianFilter](https://user-images.githubusercontent.com/69707792/125557750-b2a7be9c-107f-454d-81fd-cdd50a35d687.JPG)
 
 > ### Code
 ```C++
+    //Gaussian 필터링
 
+    //S_n_P noise 이미지 불러오기
+    ImageForm* q_pForm_s = 0;
+
+    for(int i=0; i<_plpImageForm->Count();i++)
+        if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
+        {
+            q_pForm_s = (*_plpImageForm)[i];
+            break;
+        }
+
+    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
+
+    //Gaussian noise 이미지 불러오기
+
+    ImageForm* q_pForm_g = 0;
+
+    for(int i=0; i<_plpImageForm->Count();i++)
+        if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
+        {
+            q_pForm_g = (*_plpImageForm)[i];
+            break;
+        }
+    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
+
+    int Gau_filter_size = 8*sigma + 1; //filter size
+
+
+
+
+    int size = std::sqrt(Gau_filter_size);
+
+
+    //qDebug()<<size;
+        //Salt Noise
+
+    double mask_r_s, mask_g_s, mask_b_s;
+    double mask_r_g, mask_g_g, mask_b_g;
+
+
+    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
+        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
+
+            mask_r_s = 0;
+            mask_g_s = 0;
+            mask_b_s = 0;
+
+            mask_r_g = 0;
+            mask_g_g = 0;
+            mask_b_g = 0;
+
+
+            for(int i = -size; i<size+1; i++){
+                for(int j = -size; j<size+1;j++){
+                    mask_r_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].r;
+                    mask_g_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].g;
+                    mask_b_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].b;
+
+                    mask_r_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].r;
+                    mask_g_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].g;
+                    mask_b_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].b;
+                }
+            }
+
+            Salt_Noise_2[ii][jj].r = (1/(2*M_PI*sigma*sigma))*mask_r_s;
+            Salt_Noise_2[ii][jj].g = (1/(2*M_PI*sigma*sigma))*mask_g_s;
+            Salt_Noise_2[ii][jj].b = (1/(2*M_PI*sigma*sigma))*mask_b_s;
+
+            Gaussian_Noise_2[ii][jj].r = (1/(2*M_PI*sigma*sigma))*mask_r_g;
+            Gaussian_Noise_2[ii][jj].g = (1/(2*M_PI*sigma*sigma))*mask_g_g;
+            Gaussian_Noise_2[ii][jj].b = (1/(2*M_PI*sigma*sigma))*mask_b_g;
+
+
+
+        }
+    }
+
+
+    //show noise 제거
+    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Gaussian_Salt_n_Pepper", this);
+    _plpImageForm->Add(q_pForm3);
+    q_pForm3->show();
+
+    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Gaussian_Gaussian", this);
+    _plpImageForm->Add(q_pForm4);
+    q_pForm4->show();
 ```    
 
 
+
+
+
+
+> ## Median Filter
+- Median Filtering
+> ### result
+
+![MedianFilter](https://user-images.githubusercontent.com/69707792/125557741-fda5db35-3fa6-4cdc-9f28-b4ac8881764f.JPG)
+
+> ### Code
+```C++
+    //필터링
+    int filtersize = ui->spin_FilterSize->value();
+
+    //Median Filtering
+        //S_n_P noise 이미지 불러오기
+    ImageForm* q_pForm_s = 0;
+
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
+            {
+                q_pForm_s = (*_plpImageForm)[i];
+                break;
+            }
+
+    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
+
+    //Gaussian noise 이미지 불러오기
+
+    ImageForm* q_pForm_g = 0;
+
+        for(int i=0; i<_plpImageForm->Count();i++)
+            if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
+            {
+                q_pForm_g = (*_plpImageForm)[i];
+                break;
+            }
+    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
+
+
+    int size = 0.5*filtersize-0.5;
+    std::vector<double> v_r_s,v_g_s,v_b_s;
+    std::vector<double> v_r_g,v_g_g,v_b_g;
+    int box = filtersize*filtersize;
+
+    //qDebug()<<size;
+        //Salt Noise
+
+
+    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
+        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
+
+            v_r_s.clear();
+            v_g_s.clear();
+            v_b_s.clear();
+
+            v_r_g.clear();
+            v_g_g.clear();
+            v_b_g.clear();
+
+
+            for(int i = -size; i<size+1; i++){
+                for(int j = -size; j<size+1;j++){
+                    v_r_s.push_back(Salt_Noise[ii-i][jj-j].r);
+                    v_g_s.push_back(Salt_Noise[ii-i][jj-j].g);
+                    v_b_s.push_back(Salt_Noise[ii-i][jj-j].b);
+
+                    v_r_g.push_back(Gaussian_Noise[ii-i][jj-j].r);
+                    v_g_g.push_back(Gaussian_Noise[ii-i][jj-j].g);
+                    v_b_g.push_back(Gaussian_Noise[ii-i][jj-j].b);
+                }
+            }
+
+            //qDebug()<<sum_r/(filtersize*filtersize);
+            sort(v_r_s.begin(),v_r_s.end());
+            sort(v_g_s.begin(),v_g_s.end());
+            sort(v_b_s.begin(),v_b_s.end());
+
+            sort(v_r_g.begin(),v_r_g.end());
+            sort(v_g_g.begin(),v_g_g.end());
+            sort(v_b_g.begin(),v_b_g.end());
+
+            Salt_Noise_2[ii][jj].r = v_r_s[box/2];
+            Salt_Noise_2[ii][jj].g = v_g_s[box/2];
+            Salt_Noise_2[ii][jj].b = v_b_s[box/2];
+
+            Gaussian_Noise_2[ii][jj].r = v_r_g[box/2];
+            Gaussian_Noise_2[ii][jj].g = v_g_g[box/2];
+            Gaussian_Noise_2[ii][jj].b = v_b_g[box/2];
+
+
+        }
+    }
+
+
+    //show noise 제거
+    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Median_Salt_n_Pepper", this);
+    _plpImageForm->Add(q_pForm3);
+    q_pForm3->show();
+
+    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Median_Gaussian", this);
+    _plpImageForm->Add(q_pForm4);
+    q_pForm4->show();
+```   
