@@ -151,6 +151,14 @@ use_math: true
 - 장점
     - 빠르다
     - Box(i+1) = Box(i) - neighborhood(i)[first] + neighborhood(i+1)[last]
+
+- 단점
+    - Signal frequencies shared with noise are lose
+    - Impulse noise is diffused but not removed
+    - The secondary lobes let noise into the filtered image
+    ![sinc](https://user-images.githubusercontent.com/69707792/125558997-379d0e7a-ea18-4d0f-a6cd-e92f82dff2d0.jpg)
+
+
 > ### result
 
 ![BoxFilter](https://user-images.githubusercontent.com/69707792/125557704-b363897d-2f3d-4281-bac0-8e3d95bc327d.JPG)
