@@ -249,7 +249,7 @@ use_math: true
 
 > ## Gaussian Filter
 
-<img src = "https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg" width = 80%>
+<img src = "https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg" width = 100%>
 
 
 - 장점
