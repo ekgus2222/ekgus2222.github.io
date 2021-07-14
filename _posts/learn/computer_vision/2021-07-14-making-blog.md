@@ -254,7 +254,7 @@ use_math: true
 
 - 장점
     - Secondary lobes가 없으므로 정확한 low-pass filter 구현이 가능하다.
-    <img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 60%>
+    <img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 80%>
 
 
 > ### result
