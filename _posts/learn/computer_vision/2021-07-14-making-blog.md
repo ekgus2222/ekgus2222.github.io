@@ -10,122 +10,120 @@ comments: true
 use_math: true
 ---
 
-# 3. Histogram Equalization & Histogram Matching
+# 4. Gaussian noise and salt&pepper noise & Box, Gaussian, Median Filter
 
-> # Histogram Equalization
+> # Noise
 > ## Input Image
 
-![inputImg](https://user-images.githubusercontent.com/69707792/125424580-e29eaa8d-3291-4c47-a8ef-aecbe75f5c07.JPG)
+![InputImg](https://user-images.githubusercontent.com/69707792/125555395-7eaab96f-eac3-4383-9644-032b8e893460.JPG)
 
-> ## Histogram Equalization
-- Histogram Equalization이란?
-    이미지의 밝기를 조정해 contrast를 개선한다.   
-    contrast 높다 = 분산이 크다 = 분산이 가장 크려면 밝기 분포가 일정해야 한다 = 선명하다
-    
-<img src = "https://user-images.githubusercontent.com/69707792/125429047-f6b3af06-98f9-4fe2-b223-17bac9261da5.jpg" width = 50%>
-
-- idea
-
-<img src = "https://user-images.githubusercontent.com/69707792/125430627-fb894105-8e6b-4d0a-af44-42c26a0f7729.jpg" width = 50%> r과 s matching   
-
-<br>
-
+> ## Gaussian Noise
+- Gaussian Noise란?
+    - 각 픽셀과 관련없이 독립적으로 생김.
+    - $\hat I(i,j) = I(i,j) + n(i,j)
+> ## Salt&Pepper Noise
+- Salt&Pepper Noise란?
 
 > ### result
 
-![resultHEQ](https://user-images.githubusercontent.com/69707792/125427240-93288cdf-8f33-4f9b-b889-41fb4a4a4406.JPG)
+![noise](https://user-images.githubusercontent.com/69707792/125555564-74987786-a87b-439a-bbf5-3bbf478077f7.JPG)
 
 
 > ### Code
 ```C++
-void MainFrame::on_buttonHEQ_clicked()
-{
-    KImageColor icMain;
+//포커스 된 ImageForm으로부터 영상을 가져옴
+    KImageColor Gaussian_Noise;
+    KImageColor Salt_Noise;
 
     //포커스 된 ImageForm으로부터 영상을 가져옴
     if(_q_pFormFocused != 0 && _q_pFormFocused->ImageColor().Address() &&  _q_pFormFocused->ID() == "OPEN")
     {
-        icMain = _q_pFormFocused->ImageColor();
+        Gaussian_Noise = _q_pFormFocused->ImageColor();
+        Salt_Noise = _q_pFormFocused->ImageColor();
     }
     else
         return;
 
 
-    //To get its histogramming
-    int histo_R[256] = {0, };
-    int histo_G[256] = {0, };
-    int histo_B[256] = {0, };
-
-    double P_R[256] = {0, };
-    double P_G[256] = {0, };
-    double P_B[256] = {0, };
-
-    double T_R[256] = {0, };
-    double T_G[256] = {0, };
-    double T_B[256] = {0, };
-
-    double r_R[256] = {0, };
-    double r_G[256] = {0, };
-    double r_B[256] = {0, };
 
 
-    //histogram
-    for(unsigned int i=0; i<icMain.Row(); i++){
-        for(unsigned int j=0; j<icMain.Col(); j++)
-        {
-            histo_R[icMain[i][j].r] += 1;
-            histo_G[icMain[i][j].g] += 1;
-            histo_B[icMain[i][j].b] += 1;
+    //Gaussian Noise 생성
+    double sigma = ui->spin_GaussianParameter->value();
+
+    KGaussian GauN;
+    GauN.Create(0, sigma*sigma);
+    GauN.OnRandom(Gaussian_Noise.Size());
+
+    double dNoise = 0;
+    double Kp = 8;
+    for(int i = 0; i<Gaussian_Noise.Row();i++){
+        for(int j = 0; j<Gaussian_Noise.Col();j++){
+            dNoise = GauN.Generate();
+
+            if(Gaussian_Noise[i][j].r + dNoise*Kp > 255)
+                Gaussian_Noise[i][j].r = 255;
+            else if(Gaussian_Noise[i][j].r +dNoise*Kp < 0)
+                Gaussian_Noise[i][j].r = 0;
+            else
+                Gaussian_Noise[i][j].r += dNoise*Kp;
+
+            if(Gaussian_Noise[i][j].g + dNoise*Kp > 255)
+                Gaussian_Noise[i][j].g = 255;
+            else if(Gaussian_Noise[i][j].g +dNoise*Kp < 0)
+                Gaussian_Noise[i][j].g = 0;
+            else
+                Gaussian_Noise[i][j].g += dNoise*Kp;
+
+            if(Gaussian_Noise[i][j].b + dNoise*Kp > 255)
+                Gaussian_Noise[i][j].b = 255;
+            else if(Gaussian_Noise[i][j].b +dNoise*Kp < 0)
+                Gaussian_Noise[i][j].b = 0;
+            else
+                Gaussian_Noise[i][j].b += dNoise*Kp;
+        }
+    }
+
+
+    //Salt Noise 생성
+    srand((int)time(NULL));
+
+
+    double Thres = 0.005;
+    double minus_Thres = (double)(1-Thres);
+    double random;
+
+
+    for(int i=0; i<Salt_Noise.Row(); i++){
+        for(int j=0;j<Salt_Noise.Col();j++){
+
+            random = (double) rand()/RAND_MAX;
+
+            if(random<Thres)
+            {
+                Salt_Noise[i][j].r = 0;
+                Salt_Noise[i][j].g = 0;
+                Salt_Noise[i][j].b = 0;
+            }
+            else if(random>minus_Thres){
+                Salt_Noise[i][j].r = 255;
+                Salt_Noise[i][j].g = 255;
+                Salt_Noise[i][j].b = 255;
+            }
+
 
         }
     }
 
-    for(unsigned int t=0; t<256; t++){
-
-        P_R[t] = (double)histo_R[t]/(double)icMain.Size();
-        P_G[t] = (double)histo_G[t]/(double)icMain.Size();
-        P_B[t] = (double)histo_B[t]/(double)icMain.Size();
-
-        //qDebug() << t << " : " << P_R[t];
-
-    }
-    //
 
 
-    // 대응
-    T_R[0] = P_R[0];
-    T_G[0] = P_G[0];
-    T_B[0] = P_B[0];
+    //show noise
+    ImageForm*  q_pForm1 = new ImageForm(Salt_Noise, "Salt_and_Pepper Noise", this);
+    _plpImageForm->Add(q_pForm1);
+    q_pForm1->show();
 
-    // 1/255 * r = T_R[r]
-
-    for(unsigned int r=1; r<256; r++){
-        T_R[r] = T_R[r-1] + P_R[r];
-        r_R[r] = T_R[r] * 255;
-        T_B[r] = T_G[r-1] + P_G[r];
-        r_G[r] = T_G[r] * 255;
-        T_G[r] = T_B[r-1] + P_B[r];
-        r_B[r] = T_B[r] * 255;
-
-        //qDebug() << r << " : " << T_R[r];
-
-    }
-
-
-    // 대입
-    for(unsigned int i=0; i<icMain.Row(); i++){
-        for(unsigned int j=0; j<icMain.Col(); j++)
-        {
-            icMain[i][j].r = r_R[icMain[i][j].r];
-            icMain[i][j].g = r_R[icMain[i][j].g];
-            icMain[i][j].b = r_R[icMain[i][j].b];
-        }
-    }
-
-    ImageForm*  q_pForm2 = new ImageForm(icMain, "HEQ", this);
+    ImageForm*  q_pForm2 = new ImageForm(Gaussian_Noise, "Gaussian Noise", this);
     _plpImageForm->Add(q_pForm2);
     q_pForm2->show();
-}
 ```
 
 
