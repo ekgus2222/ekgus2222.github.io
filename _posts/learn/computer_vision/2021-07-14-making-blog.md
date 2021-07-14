@@ -249,11 +249,12 @@ use_math: true
 
 > ## Gaussian Filter
 
-![Gaussianfi](https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg)
+<img src = "https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg" width = 60%>
+
 
 - 장점
     - Secondary lobes가 없으므로 정확한 low-pass filter 구현이 가능하다.
-    <img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 40%>
+    <img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 60%>
 
 
 > ### result
