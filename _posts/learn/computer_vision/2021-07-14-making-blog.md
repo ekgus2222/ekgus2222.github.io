@@ -1,5 +1,3 @@
-$I(i,j)=I(i,j)+n(i,j)$
-$$1 + 1 = 2$$
 ---
 layout: post
 title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
@@ -22,6 +20,8 @@ use_math: true
 > ## Gaussian Noise
 - Gaussian Noise란?
     - 각 픽셀과 관련없이 독립적으로 생김.
+    - 아래 수식에서 n은 정규분포를 가지는 잡음   
+    ![Gaussian](https://user-images.githubusercontent.com/69707792/125557141-46957d2a-7487-47f6-a7e5-0346f1f504b6.jpg)
 
 
 
