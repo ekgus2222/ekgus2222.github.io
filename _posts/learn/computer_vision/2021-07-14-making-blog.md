@@ -1,4 +1,4 @@
-$I(i,j) = I(i,j) + n(i,j)$
+$ I(i,j) = I(i,j) + n(i,j) $
 ---
 layout: post
 title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
