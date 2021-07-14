@@ -1,3 +1,4 @@
+$I(i,j) = I(i,j) + n(i,j)$
 ---
 layout: post
 title:  "[Computer_Vision] 3. Histogram Equalization & Histogram Matching"
@@ -21,7 +22,7 @@ use_math: true
 - Gaussian Noise란?
     - 각 픽셀과 관련없이 독립적으로 생김.
 
-$I(i,j) = I(i,j) + n(i,j)$
+
 
 > ## Salt&Pepper Noise
 - Salt&Pepper Noise란?
