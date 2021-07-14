@@ -359,6 +359,18 @@ use_math: true
 
 > ## Median Filter
 - Median Filtering
+    - 주변 픽셀값을 sort한 후 중간값을 구하는 방식의 이미지 필터링
+    
+- 장점
+    - 경계가 흐려지지 않음
+    - 중간값을 선택하는 방법이기 때문에 Salt and Pepper noise에 강함
+
+-단점 
+    - 느리다
+    
+![med](https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg)
+
+
 > ### result
 
 ![MedianFilter](https://user-images.githubusercontent.com/69707792/125557741-fda5db35-3fa6-4cdc-9f28-b4ac8881764f.JPG)
