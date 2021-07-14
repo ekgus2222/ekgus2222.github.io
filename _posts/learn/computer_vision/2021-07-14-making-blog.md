@@ -20,7 +20,9 @@ use_math: true
 > ## Gaussian Noise
 - Gaussian Noise란?
     - 각 픽셀과 관련없이 독립적으로 생김.
-    - $\hat I(i,j) = I(i,j) + n(i,j)$
+
+$\hat I(i,j) = I(i,j) + n(i,j)$
+
 > ## Salt&Pepper Noise
 - Salt&Pepper Noise란?
 
