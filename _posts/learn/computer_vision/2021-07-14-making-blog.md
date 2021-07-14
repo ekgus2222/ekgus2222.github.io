@@ -28,7 +28,8 @@ use_math: true
 - Salt&Pepper Noise란?
     - impulsive noise or spike noise
     - 0 또는 1이 랜덤하게 생김 <br>
-    <img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg">
+
+<img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg">
 
 > ### result
 
@@ -146,7 +147,8 @@ use_math: true
 - Box Filtering 
     - 주변 픽셀값의 평균을 얻는 방식의 이미지 필터링
     - 이미지 샘플과 filter kernel을 곱해서 필터링된 결과값을 얻음
-    <img src = "https://user-images.githubusercontent.com/69707792/125558328-7f216a54-b9d2-4134-b6e7-91a6703d4054.jpg" width = 40%>
+
+<img src = "https://user-images.githubusercontent.com/69707792/125558328-7f216a54-b9d2-4134-b6e7-91a6703d4054.jpg" width = 40%>
     
 - 장점
     - 빠르다
@@ -156,7 +158,8 @@ use_math: true
     - Signal frequencies shared with noise are lose
     - Impulse noise is diffused but not removed
     - The secondary lobes let noise into the filtered image
-    ![sinc](https://user-images.githubusercontent.com/69707792/125558997-379d0e7a-ea18-4d0f-a6cd-e92f82dff2d0.jpg)
+    
+![sinc](https://user-images.githubusercontent.com/69707792/125558997-379d0e7a-ea18-4d0f-a6cd-e92f82dff2d0.jpg)
 
 
 > ### result
@@ -254,7 +257,8 @@ use_math: true
 
 - 장점
     - Secondary lobes가 없으므로 정확한 low-pass filter 구현이 가능하다.
-    <img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 80%>
+
+<img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 80%>
 
 
 > ### result
@@ -364,7 +368,8 @@ use_math: true
 - 장점
     - 경계가 흐려지지 않음
     - 중간값을 선택하는 방법이기 때문에 Salt and Pepper noise에 강함
-    <img src = "https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg" width = 60%>
+
+<img src = "https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg" width = 60%>
 
 
 - 단점
