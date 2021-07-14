@@ -364,11 +364,12 @@ use_math: true
 - 장점
     - 경계가 흐려지지 않음
     - 중간값을 선택하는 방법이기 때문에 Salt and Pepper noise에 강함
+    <img src = "https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg" width = 60%>
 
--단점  
-    - 느리다
 
-<img src = "https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg" width = 60%>
+- 단점
+    - sort 해야하므로 
+
 
 > ### result
 
