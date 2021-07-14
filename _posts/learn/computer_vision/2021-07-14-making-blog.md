@@ -251,6 +251,10 @@ use_math: true
 
 ![Gaussianfi](https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg)
 
+- 장점
+    - Secondary lobes가 없으므로 정확한 low-pass filter 구현이 가능하다.
+    ![Gaussianfi](https://user-images.githubusercontent.com/69707792/125559754-f32f8cab-a41a-4549-9e3a-7ff714371ddc.jpg)
+
 > ### result
 
 ![GaussianFilter](https://user-images.githubusercontent.com/69707792/125557750-b2a7be9c-107f-454d-81fd-cdd50a35d687.JPG)
