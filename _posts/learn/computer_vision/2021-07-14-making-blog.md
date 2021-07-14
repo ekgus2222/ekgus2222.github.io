@@ -28,7 +28,7 @@ use_math: true
 - Salt&Pepper Noise란?
     - impulsive noise or spike noise
     - 0 또는 1이 랜덤하게 생김 <br>
-    <img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg" width = 60%>
+    <img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg">
 
 > ### result
 
