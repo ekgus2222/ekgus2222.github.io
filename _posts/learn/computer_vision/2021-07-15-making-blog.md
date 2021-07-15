@@ -23,14 +23,18 @@ use_math: true
 1. 노이즈 제거를 위한 smoothing
 2. Sobel mask를 이용한 edge 후보 찾기
 3. Non-Maxima Suppression 
-4. Thresholding
+4. Hysteresis Thresholding
 
 
 
-+ 
++ 2. Sobel mask를 이용한 edge 후보 찾기
+    - magnitude를 이용해 edge의 direction을 구한다.
+    
 + 3. Non-Maxima Suppression   
-
-+ 
+    - Local Maxima를 선택해서 얇은 edge를 구할 수 있게 하는 과정
+    - 2에서 구한 direction을 통해서 edge 후보의 양옆과 비교를 해서 최대인 경우 남김
++ 4. Hysteresis Thresholding
+    - edge의 끊김 방지를 위해 Low Threshold를 넘고 주변에 edge가 있다면 edge로 
 
 > ### result
 
