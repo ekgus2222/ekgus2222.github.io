@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Computer_Vision] 4. Gaussian noise and salt&pepper noise & Box, Gaussian, Median Filter"
+title:  "[Computer_Vision] 5. Canny Edge Operator"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
@@ -10,468 +10,236 @@ comments: true
 use_math: true
 ---
 
-# 4. Gaussian noise and salt&pepper noise & Box, Gaussian, Median Filter
+# 5. Canny Edge Operator
 
-> # Noise
+> # Canny Edge Operator
 > ## Input Image
 
-![InputImg](https://user-images.githubusercontent.com/69707792/125555395-7eaab96f-eac3-4383-9644-032b8e893460.JPG)
-
-> ## Gaussian Noise
-- Gaussian Noise란?
-    - 정규분포 Noise, 각 픽셀과 관련없이 독립적으로 생김.
-    - 아래 수식에서 n은 정규분포를 가지는 잡음   <br>
-    <img src = "https://user-images.githubusercontent.com/69707792/125557141-46957d2a-7487-47f6-a7e5-0346f1f504b6.jpg" width = 40%>
+![InputImg](https://user-images.githubusercontent.com/69707792/125769569-c4962fa9-d039-4ec9-b931-a085f3a085c0.JPG)
 
 
-> ## Salt&Pepper Noise
-- Salt&Pepper Noise란?
-    - impulsive noise or spike noise
-    - 0 또는 1이 랜덤하게 생김 <br>
+> ## Canny Edge Operator
 
-<img src = "https://user-images.githubusercontent.com/69707792/125557473-3849fc4b-3658-49e5-ab15-0ef5e0a33073.jpg">
+1. 노이즈 제거를 위한 smoothing
+2. Sobel mask를 이용한 edge 후보 찾기
+3. Non-Maxima Suppression 
+4. Thresholding
+
+
+
++ 
++ 3. Non-Maxima Suppression   
+
++ 
 
 > ### result
 
-![noise](https://user-images.githubusercontent.com/69707792/125555564-74987786-a87b-439a-bbf5-3bbf478077f7.JPG)
+![resultImg](https://user-images.githubusercontent.com/69707792/125769601-b09b022e-3d3c-4c44-a1b1-aeec9b4fe6f3.JPG)
 
 
 > ### Code
 ```C++
-//포커스 된 ImageForm으로부터 영상을 가져옴
-    KImageColor Gaussian_Noise;
-    KImageColor Salt_Noise;
+void MainFrame::on_button_CannyEdge_clicked()
+{
+
+    KImageGray icMain;
+    KImageGray icMain2;
 
     //포커스 된 ImageForm으로부터 영상을 가져옴
-    if(_q_pFormFocused != 0 && _q_pFormFocused->ImageColor().Address() &&  _q_pFormFocused->ID() == "OPEN")
+    if(_q_pFormFocused != 0 && _q_pFormFocused->ImageGray().Address() &&  _q_pFormFocused->ID() == "OPEN")
     {
-        Gaussian_Noise = _q_pFormFocused->ImageColor();
-        Salt_Noise = _q_pFormFocused->ImageColor();
+        icMain = _q_pFormFocused->ImageGray();
+        icMain2 = _q_pFormFocused->ImageGray();
     }
     else
         return;
 
-
-
-
-    //Gaussian Noise 생성
-    double sigma = ui->spin_GaussianParameter->value();
-
-    KGaussian GauN;
-    GauN.Create(0, sigma*sigma);
-    GauN.OnRandom(Gaussian_Noise.Size());
-
-    double dNoise = 0;
-    double Kp = 8;
-    for(int i = 0; i<Gaussian_Noise.Row();i++){
-        for(int j = 0; j<Gaussian_Noise.Col();j++){
-            dNoise = GauN.Generate();
-
-            if(Gaussian_Noise[i][j].r + dNoise*Kp > 255)
-                Gaussian_Noise[i][j].r = 255;
-            else if(Gaussian_Noise[i][j].r +dNoise*Kp < 0)
-                Gaussian_Noise[i][j].r = 0;
-            else
-                Gaussian_Noise[i][j].r += dNoise*Kp;
-
-            if(Gaussian_Noise[i][j].g + dNoise*Kp > 255)
-                Gaussian_Noise[i][j].g = 255;
-            else if(Gaussian_Noise[i][j].g +dNoise*Kp < 0)
-                Gaussian_Noise[i][j].g = 0;
-            else
-                Gaussian_Noise[i][j].g += dNoise*Kp;
-
-            if(Gaussian_Noise[i][j].b + dNoise*Kp > 255)
-                Gaussian_Noise[i][j].b = 255;
-            else if(Gaussian_Noise[i][j].b +dNoise*Kp < 0)
-                Gaussian_Noise[i][j].b = 0;
-            else
-                Gaussian_Noise[i][j].b += dNoise*Kp;
-        }
-    }
-
-
-    //Salt Noise 생성
-    srand((int)time(NULL));
-
-
-    double Thres = 0.005;
-    double minus_Thres = (double)(1-Thres);
-    double random;
-
-
-    for(int i=0; i<Salt_Noise.Row(); i++){
-        for(int j=0;j<Salt_Noise.Col();j++){
-
-            random = (double) rand()/RAND_MAX;
-
-            if(random<Thres)
-            {
-                Salt_Noise[i][j].r = 0;
-                Salt_Noise[i][j].g = 0;
-                Salt_Noise[i][j].b = 0;
-            }
-            else if(random>minus_Thres){
-                Salt_Noise[i][j].r = 255;
-                Salt_Noise[i][j].g = 255;
-                Salt_Noise[i][j].b = 255;
-            }
-
-
-        }
-    }
-
-
-
-    //show noise
-    ImageForm*  q_pForm1 = new ImageForm(Salt_Noise, "Salt_and_Pepper Noise", this);
-    _plpImageForm->Add(q_pForm1);
-    q_pForm1->show();
-
-    ImageForm*  q_pForm2 = new ImageForm(Gaussian_Noise, "Gaussian Noise", this);
-    _plpImageForm->Add(q_pForm2);
-    q_pForm2->show();
-```
-
-
-
-
-> # Box, Gaussian, Median Filter
-> ## Input Image
-
-![noise](https://user-images.githubusercontent.com/69707792/125557647-4c085b6a-c7d3-485a-abe1-be0e57939021.JPG)
-
-
-
-> ## Box Filter
-- Box Filtering 
-    - 주변 픽셀값의 평균을 얻는 방식의 이미지 필터링
-    - 이미지 샘플과 filter kernel을 곱해서 필터링된 결과값을 얻음
-
-<img src = "https://user-images.githubusercontent.com/69707792/125558328-7f216a54-b9d2-4134-b6e7-91a6703d4054.jpg" width = 40%>
-    
-- 장점
-    - 빠르다
-    - Box(i+1) = Box(i) - neighborhood(i)[first] + neighborhood(i+1)[last]
-
-- 단점
-    - Signal frequencies shared with noise are lose
-    - Impulse noise is diffused but not removed
-    - The secondary lobes let noise into the filtered image
-    
-![sinc](https://user-images.githubusercontent.com/69707792/125558997-379d0e7a-ea18-4d0f-a6cd-e92f82dff2d0.jpg)
-
-
-> ### result
-
-![BoxFilter](https://user-images.githubusercontent.com/69707792/125557704-b363897d-2f3d-4281-bac0-8e3d95bc327d.JPG)
-
-> ### Code
-```C++
-    //필터링
-    int filtersize = ui->spin_FilterSize->value();
-
-    //Box Filtering
-        //S_n_P noise 이미지 불러오기
-    ImageForm* q_pForm_s = 0;
-
-        for(int i=0; i<_plpImageForm->Count();i++)
-            if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
-            {
-                q_pForm_s = (*_plpImageForm)[i];
-                break;
-            }
-
-    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
-
-    //Gaussian noise 이미지 불러오기
-
-    ImageForm* q_pForm_g = 0;
-
-        for(int i=0; i<_plpImageForm->Count();i++)
-            if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
-            {
-                q_pForm_g = (*_plpImageForm)[i];
-                break;
-            }
-    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
-
-    int size = 0.5*filtersize-0.5;
-    int box = filtersize*filtersize;
-    //qDebug()<<size;
-        //Salt Noise
-    double sum_r_s,sum_g_s,sum_b_s;
-    double sum_r_g,sum_g_g,sum_b_g;
-
-    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
-        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
-            sum_r_s = 0;
-            sum_g_s = 0;
-            sum_b_s = 0;
-
-            sum_r_g = 0;
-            sum_g_g = 0;
-            sum_b_g = 0;
-            for(int i = -size; i<size+1; i++){
-                for(int j = -size; j<size+1;j++){
-                    sum_r_s+=Salt_Noise[ii-i][jj-j].r;
-                    sum_g_s+=Salt_Noise[ii-i][jj-j].g;
-                    sum_b_s+=Salt_Noise[ii-i][jj-j].b;
-
-                    sum_r_g+=Gaussian_Noise[ii-i][jj-j].r;
-                    sum_g_g+=Gaussian_Noise[ii-i][jj-j].g;
-                    sum_b_g+=Gaussian_Noise[ii-i][jj-j].b;
-                }
-            }
-
-            //qDebug()<<sum_r/(filtersize*filtersize);
-
-            Salt_Noise_2[ii][jj].r=sum_r_s/box;
-            Salt_Noise_2[ii][jj].g=sum_g_s/box;
-            Salt_Noise_2[ii][jj].b=sum_b_s/box;
-
-            Gaussian_Noise_2[ii][jj].r=sum_r_g/box;
-            Gaussian_Noise_2[ii][jj].g=sum_g_g/box;
-            Gaussian_Noise_2[ii][jj].b=sum_b_g/box;
-        }
-    }
-
-
-    //show noise 제거
-    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Box_Salt_n_Pepper", this);
-    _plpImageForm->Add(q_pForm3);
-    q_pForm3->show();
-
-    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Box_Gaussian", this);
-    _plpImageForm->Add(q_pForm4);
-    q_pForm4->show();
-```    
-
-
-
-
-> ## Gaussian Filter
-
-<img src = "https://user-images.githubusercontent.com/69707792/125559377-8c9461e9-089b-4ed2-913d-f2e3d3083ac6.jpg" width = 100%>
-
-
-- 장점
-    - Secondary lobes가 없으므로 정확한 low-pass filter 구현이 가능하다.
-
-<img src = "https://user-images.githubusercontent.com/69707792/125559797-0f8dc51b-0e50-449d-8bff-514f80cb049b.jpg" width = 80%>
-
-
-> ### result
-
-![GaussianFilter](https://user-images.githubusercontent.com/69707792/125557750-b2a7be9c-107f-454d-81fd-cdd50a35d687.JPG)
-
-> ### Code
-```C++
-    //Gaussian 필터링
-
-    //S_n_P noise 이미지 불러오기
-    ImageForm* q_pForm_s = 0;
-
-    for(int i=0; i<_plpImageForm->Count();i++)
-        if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
-        {
-            q_pForm_s = (*_plpImageForm)[i];
-            break;
-        }
-
-    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
-
-    //Gaussian noise 이미지 불러오기
-
-    ImageForm* q_pForm_g = 0;
-
-    for(int i=0; i<_plpImageForm->Count();i++)
-        if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
-        {
-            q_pForm_g = (*_plpImageForm)[i];
-            break;
-        }
-    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
+    int row = icMain.Row();
+    int col = icMain.Col();
+
+    //Gaussian smoothing
+    double sigma = ui->SpinBox_sigma->value();
 
     int Gau_filter_size = 8*sigma + 1; //filter size
 
-
-
-
     int size = std::sqrt(Gau_filter_size);
 
-
     //qDebug()<<size;
-        //Salt Noise
 
-    double mask_r_s, mask_g_s, mask_b_s;
-    double mask_r_g, mask_g_g, mask_b_g;
+    double mask;
 
 
-    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
-        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
+    for(int ii = size; ii<row-size;ii++){
+        for(int jj = size; jj<col-size;jj++){
 
-            mask_r_s = 0;
-            mask_g_s = 0;
-            mask_b_s = 0;
-
-            mask_r_g = 0;
-            mask_g_g = 0;
-            mask_b_g = 0;
+            mask = 0;
 
 
             for(int i = -size; i<size+1; i++){
                 for(int j = -size; j<size+1;j++){
-                    mask_r_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].r;
-                    mask_g_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].g;
-                    mask_b_s += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Salt_Noise[ii-i][jj-j].b;
+                    mask += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*icMain[ii-i][jj-j];
 
-                    mask_r_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].r;
-                    mask_g_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].g;
-                    mask_b_g += std::exp(-0.5*((i*i+j*j)/(sigma*sigma)))*Gaussian_Noise[ii-i][jj-j].b;
                 }
             }
 
-            Salt_Noise_2[ii][jj].r = (1/(2*M_PI*sigma*sigma))*mask_r_s;
-            Salt_Noise_2[ii][jj].g = (1/(2*M_PI*sigma*sigma))*mask_g_s;
-            Salt_Noise_2[ii][jj].b = (1/(2*M_PI*sigma*sigma))*mask_b_s;
+            icMain[ii][jj] = (1/(2*M_PI*sigma*sigma))*mask;
+        }
+    }
 
-            Gaussian_Noise_2[ii][jj].r = (1/(2*M_PI*sigma*sigma))*mask_r_g;
-            Gaussian_Noise_2[ii][jj].g = (1/(2*M_PI*sigma*sigma))*mask_g_g;
-            Gaussian_Noise_2[ii][jj].b = (1/(2*M_PI*sigma*sigma))*mask_b_g;
+    //Sobel Mask
+
+    int dLow = 80;
+    int dHigh = 120;
+    double mag_x;
+    double mag_y;
+    double phase;
+
+    double** magnitude = new double*[row]{0,};
+    int** direction = new int*[row] {0,};
+    for(int i = 0; i < row; i++)
+    {
+        magnitude[i] = new double[col]{0,};  // magnitude
+        direction[i] = new int[col]{0,};
+    }
+
+    double Mask_w[3][3] = {{-1., 0., 1.},
+                           {-2., 0., 2.},
+                           {-1., 0. ,1.}};
+    double Mask_h[3][3] = {{1., 2., 1.},
+                           {0., 0., 0.},
+                           {-1., -2. ,-1.}};
+
+    //qDebug()<<row<< " "<<col;
 
 
+    qDebug()<<(unsigned char)((((int)(113/22.5)+1)>>1) & 0x00000003);
+
+    for(int ii = 1; ii<row-1;ii++){
+        for(int jj = 1; jj<col-1;jj++){
+
+            mag_x = 0;
+            mag_y = 0;
+
+            for(int i = -1; i<2; i++){
+                for(int j = -1; j<2;j++){
+                    mag_x += (Mask_w[i+1][j+1]*icMain[ii+i][jj+j]);
+                    mag_y += (Mask_h[i+1][j+1]*icMain[ii+i][jj+j]);
+                }
+            }
+
+            magnitude[ii][jj] = fabs(mag_x) + fabs(mag_y);
+
+            if(magnitude[ii][jj] > dLow)
+            {
+                //icMain2[ii][jj] = 255;
+                phase = atan2(mag_x,mag_y)*180/M_PI;
+                if(phase>360) phase -= 360;
+
+                if(phase<0) phase += 180;
+
+                direction[ii][jj] = (unsigned char)((((int)(phase/22.5)+1)>>1) & 0x00000003);
+
+
+                qDebug()<<ii<<" "<<jj<<" "<<phase<<" "<<direction[ii][jj];
+
+
+            }
+            else {
+                magnitude[ii][jj] = 0;
+                //icMain2[ii][jj] = 0;
+            }
 
         }
     }
 
 
-    //show noise 제거
-    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Gaussian_Salt_n_Pepper", this);
-    _plpImageForm->Add(q_pForm3);
-    q_pForm3->show();
+    // Non-Maxima Suppression
+    //int nDx[4] = {0, 1, 1, 1};
+    //int nDy[4] = {1, 1, 0, -1};
+    int nDx[4] = {0, 1, 1, -1};
+    int nDy[4] = {1, 1, 0, 1};
 
-    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Gaussian_Gaussian", this);
-    _plpImageForm->Add(q_pForm4);
-    q_pForm4->show();
-```    
+    double** buffer = new double*[row] {0,};
+    int** realedge = new int*[row]{0,};
+    for(int i = 0; i < row; i++)
+    {
+        buffer[i] = new double[col]{0,};
+        realedge[i] = new int[col]{0,};
+    }
 
+    class HighEdge{
+        public:
+            int x;
+            int y;
+    };
 
+    HighEdge h;
+    std::stack<HighEdge> highedge;
 
+    for(int ii = 1; ii<row-1;ii++){
+        for(int jj = 1; jj<col-1;jj++){
+            if(magnitude[ii][jj] == 0) continue;
 
-
-
-> ## Median Filter
-- Median Filtering
-    - 주변 픽셀값을 sort한 후 중간값을 구하는 방식의 이미지 필터링
-    
-- 장점
-    - 경계가 흐려지지 않음
-    - 중간값을 선택하는 방법이기 때문에 Salt and Pepper noise에 강함
-
-<img src = "https://user-images.githubusercontent.com/69707792/125560480-68cce758-1916-4ff2-88ae-a66229be712e.jpg" width = 60%>
-
-
-- 단점
-    - sort 해야하므로 느리다
-
-
-> ### result
-
-![MedianFilter](https://user-images.githubusercontent.com/69707792/125557741-fda5db35-3fa6-4cdc-9f28-b4ac8881764f.JPG)
-
-> ### Code
-```C++
-    //필터링
-    int filtersize = ui->spin_FilterSize->value();
-
-    //Median Filtering
-        //S_n_P noise 이미지 불러오기
-    ImageForm* q_pForm_s = 0;
-
-        for(int i=0; i<_plpImageForm->Count();i++)
-            if((*_plpImageForm)[i]->ID()=="Salt_and_Pepper Noise")
+            //if(magnitude[ii][jj] > magnitude[ii+nDx[direction[ii][jj]]][jj+nDy[direction[ii][jj]]] && magnitude[ii][jj] > magnitude[ii-nDx[direction[ii][jj]]][jj-nDy[direction[ii][jj]]])
+            if(magnitude[ii][jj] > magnitude[ii+nDy[direction[ii][jj]]][jj+nDx[direction[ii][jj]]] && magnitude[ii][jj] > magnitude[ii-nDy[direction[ii][jj]]][jj-nDx[direction[ii][jj]]])
             {
-                q_pForm_s = (*_plpImageForm)[i];
-                break;
-            }
+                if(magnitude[ii][jj] > dHigh)
+                {
+                    h.x = ii;
+                    h.y = jj;
 
-    KImageColor Salt_Noise_2 = q_pForm_s->ImageColor();
+                    highedge.push(h);
+                    realedge[ii][jj] = 255;
 
-    //Gaussian noise 이미지 불러오기
-
-    ImageForm* q_pForm_g = 0;
-
-        for(int i=0; i<_plpImageForm->Count();i++)
-            if((*_plpImageForm)[i]->ID()=="Gaussian Noise")
-            {
-                q_pForm_g = (*_plpImageForm)[i];
-                break;
-            }
-    KImageColor Gaussian_Noise_2 = q_pForm_g->ImageColor();
-
-
-    int size = 0.5*filtersize-0.5;
-    std::vector<double> v_r_s,v_g_s,v_b_s;
-    std::vector<double> v_r_g,v_g_g,v_b_g;
-    int box = filtersize*filtersize;
-
-    //qDebug()<<size;
-        //Salt Noise
-
-
-    for(int ii = size; ii<Salt_Noise_2.Row()-size;ii++){
-        for(int jj = size; jj<Salt_Noise_2.Col()-size;jj++){
-
-            v_r_s.clear();
-            v_g_s.clear();
-            v_b_s.clear();
-
-            v_r_g.clear();
-            v_g_g.clear();
-            v_b_g.clear();
-
-
-            for(int i = -size; i<size+1; i++){
-                for(int j = -size; j<size+1;j++){
-                    v_r_s.push_back(Salt_Noise[ii-i][jj-j].r);
-                    v_g_s.push_back(Salt_Noise[ii-i][jj-j].g);
-                    v_b_s.push_back(Salt_Noise[ii-i][jj-j].b);
-
-                    v_r_g.push_back(Gaussian_Noise[ii-i][jj-j].r);
-                    v_g_g.push_back(Gaussian_Noise[ii-i][jj-j].g);
-                    v_b_g.push_back(Gaussian_Noise[ii-i][jj-j].b);
                 }
+
+                //realedge[ii][jj] = 255;
+                buffer[ii][jj] = magnitude[ii][jj];
             }
-
-            //qDebug()<<sum_r/(filtersize*filtersize);
-            sort(v_r_s.begin(),v_r_s.end());
-            sort(v_g_s.begin(),v_g_s.end());
-            sort(v_b_s.begin(),v_b_s.end());
-
-            sort(v_r_g.begin(),v_r_g.end());
-            sort(v_g_g.begin(),v_g_g.end());
-            sort(v_b_g.begin(),v_b_g.end());
-
-            Salt_Noise_2[ii][jj].r = v_r_s[box/2];
-            Salt_Noise_2[ii][jj].g = v_g_s[box/2];
-            Salt_Noise_2[ii][jj].b = v_b_s[box/2];
-
-            Gaussian_Noise_2[ii][jj].r = v_r_g[box/2];
-            Gaussian_Noise_2[ii][jj].g = v_g_g[box/2];
-            Gaussian_Noise_2[ii][jj].b = v_b_g[box/2];
-
-
         }
     }
 
 
-    //show noise 제거
-    ImageForm*  q_pForm3 = new ImageForm(Salt_Noise_2, "Median_Salt_n_Pepper", this);
-    _plpImageForm->Add(q_pForm3);
-    q_pForm3->show();
+    for(int ii = 1; ii<row-1;ii++){
+        for(int jj = 1; jj<col-1;jj++){
+            //icMain2[ii][jj] = realedge[ii][jj];
+        }
+    }
 
-    ImageForm*  q_pForm4 = new ImageForm(Gaussian_Noise_2, "Median_Gaussian", this);
-    _plpImageForm->Add(q_pForm4);
-    q_pForm4->show();
-```   
+
+    //Thresholding
+    int x,y;
+    while(!highedge.empty())
+    {
+        x = highedge.top().x;
+        y = highedge.top().y;
+        for(int i = -1; i < 2; i++)
+        {
+            for(int j = -1; j < 2; j++)
+            {
+                if(buffer[x+i][y+j] && buffer[x+i][y+j]<=dHigh)
+                {
+                    h.x = x+i;
+                    h.y = y+j;
+                    highedge.push(h);
+                    realedge[x+i][y+j] = 255;
+                    buffer[x+i][y+j] = 0;
+                }
+            }
+        }
+        highedge.pop();
+    }
+
+    for(int ii = 1; ii<row-1;ii++){
+        for(int jj = 1; jj<col-1;jj++){
+            icMain2[ii][jj] = realedge[ii][jj];
+        }
+    }
+
+    //Show
+    ImageForm*  q_pForm1 = new ImageForm(icMain2, "Canny Edge Operator", this);
+    _plpImageForm->Add(q_pForm1);
+    q_pForm1->show();
+
+}
+```
