@@ -175,6 +175,7 @@ void MainFrame::on_button_CircleHough_clicked()
 > # General Hough Transform
 - 크기와 회전 각도가 고정일 때
     - 파라미터 3개
+    - voting 공간 : X_c, Y_c
 <img src = "https://user-images.githubusercontent.com/69707792/125898214-428f12e8-cea2-4dfa-a6a6-9d8fec42443d.jpg" width = 80%>
 
     1. 도형의 중심점을 잡고 파라미터 테이블을 만든다. 이 때 Edge Direction을 key로 사용한다.   
@@ -184,8 +185,13 @@ void MainFrame::on_button_CircleHough_clicked()
 
 - 크기와 회전 각도가 바뀔 때
     - 파라미터 5개
+    - voting 공간 : X_c, Y_c, s, theta
 <img src = "https://user-images.githubusercontent.com/69707792/125898220-2bd669d2-9d45-44cb-bd6b-39a885e76291.jpg" width = 80%>
-
+    
+    1. 크기와 회전 각도가 고정일 때와 같은 파라미터 테이블을 만든다.
+    2. 위의 그림과 같이 voting 한다.
+    
+  
 > ### result
 
 ![GeneralImg](https://user-images.githubusercontent.com/69707792/125890741-bd7305d4-6d4e-4409-a2a2-4dcc0b1405ff.JPG)
