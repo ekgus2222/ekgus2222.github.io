@@ -31,7 +31,7 @@ use_math: true
 1. circle edge를 찾는 것이기 때문에 edge 점들에서만 voting을 해야한다. 이를 위해 canny edge operator 함수를 이용해 edge를 구한다.
 2. 반지름이 103 pixel로 주어져 있으므로 파라미터는 원의 중심점(a,b)이다.
 3. edge 점을 지나고 103pixel을 가진 원의 중심을 파라미터 공간에 voting한다.
-4. voting이 가장 많은 점을 원의 중심으로 해서 원본 이미지에 103 pixel의 반지름을 가진 원을 표시한다. 
+4. voting이 가장 많은 점을 원의 중심으로 해서 103 pixel의 반지름을 가진 원을 표시한다. 
 
 > ### result
 
