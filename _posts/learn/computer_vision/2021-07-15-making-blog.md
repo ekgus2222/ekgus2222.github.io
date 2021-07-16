@@ -106,12 +106,8 @@ void MainFrame::on_button_CannyEdge_clicked()
         direction[i] = new int[col]{0,};
     }
 
-    double Mask_w[3][3] = {{-1., 0., 1.},
-                           {-2., 0., 2.},
-                           {-1., 0. ,1.}};
-    double Mask_h[3][3] = {{1., 2., 1.},
-                           {0., 0., 0.},
-                           {-1., -2. ,-1.}};
+    double Mask_w[3][3] = {{-1., 0., 1.}, {-2., 0., 2.}, {-1., 0. ,1.}};
+    double Mask_h[3][3] = {{1., 2., 1.}, {0., 0., 0.}, {-1., -2. ,-1.}};
 
     //qDebug()<<row<< " "<<col;
 
