@@ -178,7 +178,8 @@ void MainFrame::on_button_CircleHough_clicked()
 <img src = "https://user-images.githubusercontent.com/69707792/125898214-428f12e8-cea2-4dfa-a6a6-9d8fec42443d.jpg" width = 80%>
 
     1. 도형의 중심점을 잡고 파라미터 테이블을 만든다. 이 때 Edge Direction을 key로 사용한다.   
-    2. 아래의 수식을 이용해 각 edge에서 파라미터 공간에 X_c와 Y_c를 voting한다.
+    2. 아래의 수식을 이용해 각 edge에서 table를 돌면서 나올 수 있는 X_c와 Y_c의 경우를 파라미터 공간에 voting한다.
+![under](https://user-images.githubusercontent.com/69707792/125899278-94040ea1-78c3-4afd-b4b8-a1c5bea7d914.jpg)
 
 - 크기와 회전 각도가 바뀔 때
     - 파라미터 5개
