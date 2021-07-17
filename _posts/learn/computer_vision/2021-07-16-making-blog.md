@@ -459,7 +459,8 @@ void Canny_Edge(KImageGray& imgSrc,double sigma)
         direction[i] = new int[col]{0,};
     }
 
-
+    // double Mask_w[3][3] = {(-1., 0., 1.), (-2., 0., 2.), (-1., 0. ,1.)}; -> 원래 내부 '()'말고 '{}' 코든데 Git에서 오류남
+   
 
     //qDebug()<<row<< " "<<col;
 
