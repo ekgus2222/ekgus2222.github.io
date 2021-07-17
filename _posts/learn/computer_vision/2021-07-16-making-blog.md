@@ -459,8 +459,8 @@ void Canny_Edge(KImageGray& imgSrc,double sigma)
         direction[i] = new int[col]{0,};
     }
 
-    double Mask_w[3][3] = {{-1., 0., 1.}, {-2., 0., 2.}, {-1., 0. ,1.}};
-    double Mask_h[3][3] = {{1., 2., 1.}, {0., 0., 0.}, {-1., -2. ,-1.}};
+    //double Mask_w[3][3] = {{-1., 0., 1.}, {-2., 0., 2.}, {-1., 0. ,1.}}; -> 원래 있어야하는 코든데 Git에서 오류남
+    //double Mask_h[3][3] = {{1., 2., 1.}, {0., 0., 0.}, {-1., -2. ,-1.}}; -> 원래 있어야하는 코든데 Git에서 오류남
 
     //qDebug()<<row<< " "<<col;
 
