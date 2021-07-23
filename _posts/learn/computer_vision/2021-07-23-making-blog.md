@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Computer_Vision] 7. SIFT"
+title:  "[Computer_Vision] 8. Optical Flow"
 subtitle:   "정문호 교수님"
 categories: 
     - learn
@@ -10,10 +10,13 @@ comments: true
 use_math: true
 ---
 
-# 7. SIFT
+# 8. Optical Flow
 > # Input Image
 
-![InputImg](https://user-images.githubusercontent.com/69707792/126583418-c84d35fd-0846-4f36-bbe0-1e9b595def5c.JPG) 
+![inputImg](https://user-images.githubusercontent.com/69707792/126754620-88c9a40c-014e-4ec7-b9c3-e761f342c393.JPG)
+
+![InputData](https://user-images.githubusercontent.com/69707792/126754623-9f0ece09-170a-4299-946c-e481bc8410c1.JPG)
+
 
 > # SIFT
 - SIFT란?
@@ -31,9 +34,15 @@ sigma : 1
 
 > ### result
 
-![SIFT](https://user-images.githubusercontent.com/69707792/126583658-ae947822-372a-48f3-8afc-caeb0863e9e3.jpg)
+![1to2](https://user-images.githubusercontent.com/69707792/126754645-02da2e99-ff43-44af-a9ef-c6d3b73a8661.JPG)
 
-SIFT 특징을 찾고 DB 생성
+![2to3](https://user-images.githubusercontent.com/69707792/126754648-65a2916f-b332-4aee-a370-19ad4855a7aa.JPG)
+
+![3to4](https://user-images.githubusercontent.com/69707792/126754651-ca8093eb-6a31-4fae-9b3f-1862cea37fd8.JPG)
+
+
+- 범위를 1~4로 설정했을 때의 결과이다.   
+- 정지해 있는 산은 변화가 적고 상대적으로 움직이거나 밝기 변화가 있는 폭포와 하늘은 변화가 큰 모습을 볼 수 있다.
 
 > ### Code
 ```C++
