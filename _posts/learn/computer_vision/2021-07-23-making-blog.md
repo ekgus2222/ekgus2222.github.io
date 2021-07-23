@@ -19,17 +19,17 @@ use_math: true
 
 
 > # Optical Flow
-- Optical Flow란?
+- Optical Flow란?   
     영상 내 물체의 움직임 패턴
 
-- 가정
+- 가정   
     1. 연속된 프레임 사이에서 움직이는 물체의 픽셀 intensity는 변함이 없다. (color constancy)
     2. 이웃하는 픽셀은 비슷한 움직임을 가진다.(Brightness Constraint)
 
-- Aperture Problem
+- Aperture Problem   
     하나의 픽셀만 관찰할 경우 조건 부족으로 인해 실제 움직임을 잘못 판별하는 문제가 발생함.
 
-- Lucas & Kanade Method
+- Lucas & Kanade Method   
     주변 픽셀은 유사한 움직임을 갖는다는 조건을 이용해 추가적인 equation을 구함으로써 해결함.
     
     
