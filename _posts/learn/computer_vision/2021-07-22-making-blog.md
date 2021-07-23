@@ -698,3 +698,13 @@ void Mark_KeyPoint(KImageGray &igScale, double mag, double ori_deg, int pX, int 
 
 }
 ```
+
+```C++
+typedef struct real{
+    int x,y;
+    double scale;
+    double direction = -1;
+    double magnitude = -1;
+    std::vector<std::vector<double>> feature;
+}real_key;
+```
