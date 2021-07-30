@@ -80,7 +80,7 @@ void MainFrame::on_button_opticalflow_clicked()
 
     for(int i = 0; i < row; i++)
     {
-        mat_uv[i] = new UV[col]{{0,0},};
+        mat_uv[i] = new UV[col]{ {0,0},};
     }
 
 
